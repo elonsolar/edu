@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package workbench.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "edu/api/assistant/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.assistant.v1";
+option java_outer_classname = "workbenchProtoV1";
+// todo 
+service Task{
+
+  // task
+	rpc CreateTask (CreateTaskRequest) returns (CreateTaskReply){
+		option (google.api.http) = {
+			post: "/task"
+			body:"*"
+		};
+	};
+	rpc UpdateTask (UpdateTaskRequest) returns (UpdateTaskReply){
+		option (google.api.http) = {
+			put: "/task/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteTask (DeleteTaskRequest) returns (DeleteTaskReply){
+		option (google.api.http) = {
+			delete: "/task",
+			body:"*"
+		};
+	};
+	rpc GetTask (GetTaskRequest) returns (GetTaskReply){
+		option (google.api.http) = {
+			get: "/task"
+		};
+	};
+	rpc ListTask (ListTaskRequest) returns (ListTaskReply){
+		option (google.api.http) = {
+			get: "/task/page"
+		};
+	};
+}
+	
+	
+
+	message CreateTaskRequest {
+		string name = 1;
+		string description = 2;
+    	int32 parent_id =3;
+    	string parent_name =4;	
+        int32 status =5;
+	}
+
+	message CreateTaskReply {}
+	
+	message UpdateTaskRequest {
+		int32 id=1;
+		string name =2;
+		string description = 3;
+		int32 status = 5;
+		int32 version =6;
+	}
+	message UpdateTaskReply {}
+	
+	message DeleteTaskRequest {
+		repeated int32 ids =1;
+		string name =2;
+	}
+	message DeleteTaskReply {}
+	
+	message GetTaskRequest {
+		int32 id =1;
+	}
+	message GetTaskReply {
+		int32 id=1;
+		string name =2;
+		string description = 3;
+		int32 parent_id =4;
+		int32 status = 5;
+		int32 version =6;
+	}
+	
+	message ListTaskRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListTaskReply {
+	
+		message Data{
+	      	int32 id =1;
+		  	string name =2;
+		  	string description = 3;
+			int32 parent_id=4;
+			string parent_name=5;
+		  	int32 status = 6;
+		  	int32 version =7;
+			repeated Data children=8;
+
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}

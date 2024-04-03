@@ -1,0 +1,5170 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: ""
+    version: 0.0.1
+paths:
+    /auth/login:
+        post:
+            tags:
+                - Auth
+            operationId: Auth_Login
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.LoginRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.LoginReply'
+    /auth/user:
+        get:
+            tags:
+                - Auth
+            operationId: Auth_GetUserInfo
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UserInfoReply'
+    /combine-sku:
+        get:
+            tags:
+                - Product
+            operationId: Product_GetCombineSku
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.GetCombineSkuReply'
+        post:
+            tags:
+                - Product
+            description: combineSku
+            operationId: Product_CreateCombineSku
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.CreateCombineSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.CreateCombineSkuReply'
+    /combine-sku-item:
+        get:
+            tags:
+                - Product
+            operationId: Product_GetCombineSkuItem
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.GetCombineSkuItemReply'
+        post:
+            tags:
+                - Product
+            description: combineSkuItem
+            operationId: Product_CreateCombineSkuItem
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.CreateCombineSkuItemRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.CreateCombineSkuItemReply'
+    /combine-sku-item/page:
+        get:
+            tags:
+                - Product
+            operationId: Product_ListCombineSkuItem
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.ListCombineSkuItemReply'
+    /combine-sku-item/{id}:
+        put:
+            tags:
+                - Product
+            operationId: Product_UpdateCombineSkuItem
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.UpdateCombineSkuItemRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.UpdateCombineSkuItemReply'
+        delete:
+            tags:
+                - Product
+            operationId: Product_DeleteCombineSkuItem
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.DeleteCombineSkuItemReply'
+    /combine-sku/page:
+        get:
+            tags:
+                - Product
+            operationId: Product_ListCombineSku
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.ListCombineSkuReply'
+    /combine-sku/place-up:
+        post:
+            tags:
+                - Product
+            operationId: Product_PlaceUpCombineSku
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.PlaceUpCombineSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.PlaceUpCombineSkuReply'
+    /combine-sku/take-down:
+        post:
+            tags:
+                - Product
+            operationId: Product_TakeDownCombineSku
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.TakeDownCombineSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.TakeDownCombineSkuReply'
+    /combine-sku/{id}:
+        put:
+            tags:
+                - Product
+            operationId: Product_UpdateCombineSku
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.UpdateCombineSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.UpdateCombineSkuReply'
+        delete:
+            tags:
+                - Product
+            operationId: Product_DeleteCombineSku
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.DeleteCombineSkuReply'
+    /course-plan:
+        get:
+            tags:
+                - Course
+            operationId: Course_GetCoursePlan
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.GetCoursePlanReply'
+        post:
+            tags:
+                - Course
+            description: coursePlan
+            operationId: Course_CreateCoursePlan
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CreateCoursePlanRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CreateCoursePlanReply'
+    /course-plan-detail:
+        get:
+            tags:
+                - Course
+            operationId: Course_GetCoursePlanDetail
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.GetCoursePlanDetailReply'
+        post:
+            tags:
+                - Course
+            description: coursePlanDetail
+            operationId: Course_CreateCoursePlanDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CreateCoursePlanDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CreateCoursePlanDetailReply'
+    /course-plan-detail/batch-add:
+        post:
+            tags:
+                - Course
+            operationId: Course_BatchAddCoursePlanDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.BatchAddCoursePlanDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.BatchAddCoursePlanDetailReply'
+    /course-plan-detail/list-all:
+        get:
+            tags:
+                - Course
+            operationId: Course_ListAllCoursePlanDetail
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListAllCoursePlanDetailReply'
+    /course-plan-detail/page:
+        get:
+            tags:
+                - Course
+            operationId: Course_ListCoursePlanDetail
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListCoursePlanDetailReply'
+    /course-plan-detail/schedule:
+        post:
+            tags:
+                - Course
+            operationId: Course_ScheduleDateForCoursePlanDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.ScheduleDateForCoursePlanDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ScheduleDateForCoursePlanDetailReply'
+    /course-plan-detail/stop:
+        post:
+            tags:
+                - Course
+            operationId: Course_StopCoursePlanDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.StopCoursePlanDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.StopCoursePlanDetailReply'
+    /course-plan-detail/{id}:
+        put:
+            tags:
+                - Course
+            operationId: Course_UpdateCoursePlanDetail
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.UpdateCoursePlanDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.UpdateCoursePlanDetailReply'
+        delete:
+            tags:
+                - Course
+            operationId: Course_DeleteCoursePlanDetail
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.DeleteCoursePlanDetailReply'
+    /course-plan-student:
+        get:
+            tags:
+                - Course
+            operationId: Course_GetCoursePlanStudent
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.GetCoursePlanStudentReply'
+        post:
+            tags:
+                - Course
+            description: |-
+                报名
+                 coursePlan
+            operationId: Course_CreateCoursePlanStudent
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CreateCoursePlanStudentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CreateCoursePlanStudentReply'
+    /course-plan-student/page:
+        get:
+            tags:
+                - Course
+            operationId: Course_ListCoursePlanStudent
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListCoursePlanStudentReply'
+    /course-plan-student/stop:
+        post:
+            tags:
+                - Course
+            operationId: Course_StopCoursePlanStudent
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.StopCoursePlanStudentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.StopCoursePlanStudentReply'
+    /course-plan-student/{id}:
+        put:
+            tags:
+                - Course
+            operationId: Course_UpdateCoursePlanStudent
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.UpdateCoursePlanStudentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.UpdateCoursePlanStudentReply'
+        delete:
+            tags:
+                - Course
+            operationId: Course_DeleteCoursePlanStudent
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.DeleteCoursePlanStudentReply'
+    /course-plan/page:
+        get:
+            tags:
+                - Course
+            operationId: Course_ListCoursePlan
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListCoursePlanReply'
+    /course-plan/release:
+        post:
+            tags:
+                - Course
+            operationId: Course_ReleaseCoursePlan
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.ReleaseCoursePlanRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ReleaseCoursePlanReply'
+    /course-plan/shedule-date:
+        post:
+            tags:
+                - Course
+            operationId: Course_ScheduleDateForCoursePlan
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.ScheduleDateForCoursePlanRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ScheduleDateForCoursePlanReply'
+    /course-plan/{id}:
+        put:
+            tags:
+                - Course
+            operationId: Course_UpdateCoursePlan
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.UpdateCoursePlanRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.UpdateCoursePlanReply'
+        delete:
+            tags:
+                - Course
+            operationId: Course_DeleteCoursePlan
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.DeleteCoursePlanReply'
+    /customer:
+        get:
+            tags:
+                - Customer
+            operationId: Customer_GetCustomer
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.GetCustomerReply'
+        post:
+            tags:
+                - Customer
+            description: customer
+            operationId: Customer_CreateCustomer
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CreateCustomerRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CreateCustomerReply'
+    /customer/lesson/adjust:
+        post:
+            tags:
+                - Customer
+            operationId: Customer_AdjustLessonNumber
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.AdjustLessonNumberRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.AdjustLessonNumberReply'
+    /customer/lesson/history:
+        get:
+            tags:
+                - Customer
+            operationId: Customer_ListLessonHistory
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListLessonHistoryReply'
+    /customer/page:
+        get:
+            tags:
+                - Customer
+            operationId: Customer_ListCustomer
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListCustomerReply'
+    /customer/{id}:
+        put:
+            tags:
+                - Customer
+            operationId: Customer_UpdateCustomer
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.UpdateCustomerRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.UpdateCustomerReply'
+        delete:
+            tags:
+                - Customer
+            operationId: Customer_DeleteCustomer
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.DeleteCustomerReply'
+    /daily-lesson:
+        get:
+            tags:
+                - Course
+            operationId: Course_GetDailyLesson
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.GetDailyLessonReply'
+        post:
+            tags:
+                - Course
+            description: |-
+                课表
+                 coursePlanDetail
+            operationId: Course_CreateDailyLesson
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CreateDailyLessonRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CreateDailyLessonReply'
+    /daily-lesson-student/leave:
+        post:
+            tags:
+                - Course
+            operationId: Course_LeaveDailyLessonStudent
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.LeaveDailyLessonStudentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.LeaveDailyLessonStudentReply'
+    /daily-lesson-student/page:
+        get:
+            tags:
+                - Course
+            operationId: Course_ListDailyLessonStudent
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListDailyLessonStudentReply'
+    /daily-lesson-student/sign:
+        post:
+            tags:
+                - Course
+            operationId: Course_SignDailyLessonStudent
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.SignDailyLessonStudentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.SignDailyLessonStudentReply'
+    /daily-lesson/cancel:
+        post:
+            tags:
+                - Course
+            operationId: Course_CancelDailyLesson
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CancelDailyLessonRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CancelDailyLessonReply'
+    /daily-lesson/finish:
+        post:
+            tags:
+                - Course
+            operationId: Course_FinishDailyLesson
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.FinishDailyLessonRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.FinishDailyLessonReply'
+    /daily-lesson/page:
+        get:
+            tags:
+                - Course
+            operationId: Course_ListDailyLesson
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListDailyLessonReply'
+    /daily-lesson/start:
+        post:
+            tags:
+                - Course
+            operationId: Course_StartDailyLesson
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.StartDailyLessonRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.StartDailyLessonReply'
+    /daily-lesson/{id}:
+        put:
+            tags:
+                - Course
+            operationId: Course_UpdateDailyLesson
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.UpdateDailyLessonRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.UpdateDailyLessonReply'
+        delete:
+            tags:
+                - Course
+            operationId: Course_DeleteDailyLesson
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.DeleteDailyLessonReply'
+    /helloworld/{name}:
+        get:
+            tags:
+                - Greeter
+            description: Sends a greeting
+            operationId: Greeter_SayHello
+            parameters:
+                - name: name
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/helloworld.v1.HelloReply'
+    /order:
+        get:
+            tags:
+                - Order
+            operationId: Order_GetOrder
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/order.v1.GetOrderReply'
+        post:
+            tags:
+                - Order
+            description: 订单
+            operationId: Order_CreateOrder
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/order.v1.CreateOrderRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/order.v1.CreateOrderReply'
+    /order/page:
+        get:
+            tags:
+                - Order
+            operationId: Order_ListOrder
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/order.v1.ListOrderReply'
+    /order/{id}:
+        put:
+            tags:
+                - Order
+            operationId: Order_UpdateOrder
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/order.v1.UpdateOrderRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/order.v1.UpdateOrderReply'
+        delete:
+            tags:
+                - Order
+            operationId: Order_DeleteOrder
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/order.v1.DeleteOrderReply'
+    /permission:
+        get:
+            tags:
+                - Auth
+            operationId: Auth_GetPermission
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetPermissionReply'
+        post:
+            tags:
+                - Auth
+            description: permission
+            operationId: Auth_CreatePermission
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreatePermissionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreatePermissionReply'
+    /permission/page:
+        get:
+            tags:
+                - Auth
+            operationId: Auth_ListPermission
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListPermissionReply'
+    /permission/tree:
+        get:
+            tags:
+                - Auth
+            operationId: Auth_GetPermissionTree
+            parameters:
+                - name: parentId
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: permissionType
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetPermissionTreeReply'
+    /permission/{id}:
+        put:
+            tags:
+                - Auth
+            operationId: Auth_UpdatePermission
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdatePermissionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdatePermissionReply'
+        delete:
+            tags:
+                - Auth
+            operationId: Auth_DeletePermission
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeletePermissionReply'
+    /role:
+        get:
+            tags:
+                - Auth
+            operationId: Auth_GetRole
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetRoleReply'
+        post:
+            tags:
+                - Auth
+            description: role
+            operationId: Auth_CreateRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateRoleReply'
+    /role/page:
+        get:
+            tags:
+                - Auth
+            operationId: Auth_ListRole
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListRoleReply'
+    /role/permission:
+        get:
+            tags:
+                - Auth
+            operationId: Auth_GetRolePermission
+            parameters:
+                - name: roleId
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetRolePermissionReply'
+        post:
+            tags:
+                - Auth
+            operationId: Auth_SaveRolePermission
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.SaveRolePermissionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.SaveRolePermissionReply'
+    /role/{id}:
+        put:
+            tags:
+                - Auth
+            operationId: Auth_UpdateRole
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateRoleReply'
+        delete:
+            tags:
+                - Auth
+            operationId: Auth_DeleteRole
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteRoleReply'
+    /room:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_GetRoom
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetRoomReply'
+        post:
+            tags:
+                - Dossier
+            description: classroom
+            operationId: Dossier_CreateRoom
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateRoomRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateRoomReply'
+    /room/page:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_ListRoom
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListRoomReply'
+    /room/{id}:
+        put:
+            tags:
+                - Dossier
+            operationId: Dossier_UpdateRoom
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateRoomRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateRoomReply'
+        delete:
+            tags:
+                - Dossier
+            operationId: Dossier_DeleteRoom
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteRoomReply'
+    /sku:
+        get:
+            tags:
+                - Product
+            operationId: Product_GetSku
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.GetSkuReply'
+        post:
+            tags:
+                - Product
+            description: sku
+            operationId: Product_CreateSku
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.CreateSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.CreateSkuReply'
+    /sku/page:
+        get:
+            tags:
+                - Product
+            operationId: Product_ListSku
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.ListSkuReply'
+    /sku/place-up:
+        post:
+            tags:
+                - Product
+            operationId: Product_PlaceUpSku
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.PlaceUpSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.PlaceUpSkuReply'
+    /sku/take-down:
+        post:
+            tags:
+                - Product
+            operationId: Product_TakeDownSku
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.TakeDownSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.TakeDownSkuReply'
+    /sku/{id}:
+        put:
+            tags:
+                - Product
+            operationId: Product_UpdateSku
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/product.v1.UpdateSkuRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.UpdateSkuReply'
+        delete:
+            tags:
+                - Product
+            operationId: Product_DeleteSku
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/product.v1.DeleteSkuReply'
+    /student:
+        get:
+            tags:
+                - Customer
+            operationId: Customer_GetStudent
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.GetStudentReply'
+        post:
+            tags:
+                - Customer
+            description: student
+            operationId: Customer_CreateStudent
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CreateStudentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CreateStudentReply'
+    /student/page:
+        get:
+            tags:
+                - Customer
+            operationId: Customer_ListStudent
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListStudentReply'
+    /student/{id}:
+        put:
+            tags:
+                - Customer
+            operationId: Customer_UpdateStudent
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.UpdateStudentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.UpdateStudentReply'
+        delete:
+            tags:
+                - Customer
+            operationId: Customer_DeleteStudent
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.DeleteStudentReply'
+    /subject:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_GetSubject
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetSubjectReply'
+        post:
+            tags:
+                - Dossier
+            description: subject
+            operationId: Dossier_CreateSubject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateSubjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateSubjectReply'
+    /subject/page:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_ListSubject
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListSubjectReply'
+    /subject/{id}:
+        put:
+            tags:
+                - Dossier
+            operationId: Dossier_UpdateSubject
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateSubjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateSubjectReply'
+        delete:
+            tags:
+                - Dossier
+            operationId: Dossier_DeleteSubject
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteSubjectReply'
+    /task:
+        get:
+            tags:
+                - Task
+            operationId: Task_GetTask
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.GetTaskReply'
+        post:
+            tags:
+                - Task
+            description: task
+            operationId: Task_CreateTask
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.CreateTaskRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.CreateTaskReply'
+        delete:
+            tags:
+                - Task
+            operationId: Task_DeleteTask
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.DeleteTaskRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.DeleteTaskReply'
+    /task/page:
+        get:
+            tags:
+                - Task
+            operationId: Task_ListTask
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.ListTaskReply'
+    /task/{id}:
+        put:
+            tags:
+                - Task
+            operationId: Task_UpdateTask
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/workbench.v1.UpdateTaskRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/workbench.v1.UpdateTaskReply'
+    /teacher:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_GetTeacher
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetTeacherReply'
+        post:
+            tags:
+                - Dossier
+            description: teacher
+            operationId: Dossier_CreateTeacher
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateTeacherRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateTeacherReply'
+    /teacher/page:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_ListTeacher
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListTeacherReply'
+    /teacher/{id}:
+        put:
+            tags:
+                - Dossier
+            operationId: Dossier_UpdateTeacher
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateTeacherRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateTeacherReply'
+        delete:
+            tags:
+                - Dossier
+            operationId: Dossier_DeleteTeacher
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteTeacherReply'
+    /tenant:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_GetTenant
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetTenantReply'
+        post:
+            tags:
+                - Dossier
+            operationId: Dossier_CreateTenant
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateTenantRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateTenantReply'
+    /tenant/page:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_ListTenant
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListTenantReply'
+    /tenant/permission:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_GetTenantPermission
+            parameters:
+                - name: tenantId
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetTenantPermissionReply'
+        post:
+            tags:
+                - Dossier
+            operationId: Dossier_SaveTenantPermission
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.SaveTenantPermissionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.SaveTenantPermissionReply'
+    /tenant/permission-tree:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_GetTenantPermissionTree
+            parameters:
+                - name: parentId
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: tenantId
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: permissionType
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetTenantPermissionTreeReply'
+    /tenant/{id}:
+        put:
+            tags:
+                - Dossier
+            operationId: Dossier_UpdateTenant
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateTenantRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateTenantReply'
+        delete:
+            tags:
+                - Dossier
+            operationId: Dossier_DeleteTenant
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteTenantReply'
+    /user:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_GetUser
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetUserReply'
+        post:
+            tags:
+                - Dossier
+            operationId: Dossier_CreateUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateUserRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateUserReply'
+    /user/change-password:
+        post:
+            tags:
+                - Dossier
+            operationId: Dossier_ChangPassword
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.ChangePasswordRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ChangePasswordReply'
+    /user/page:
+        get:
+            tags:
+                - Dossier
+            operationId: Dossier_ListUser
+            parameters:
+                - name: expr
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNo
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListUserReply'
+    /user/{id}:
+        put:
+            tags:
+                - Dossier
+            operationId: Dossier_UpdateUser
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateUserRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateUserReply'
+        delete:
+            tags:
+                - Dossier
+            operationId: Dossier_DeleteUser
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteUserReply'
+components:
+    schemas:
+        api.admin.v1.ChangePasswordReply:
+            type: object
+            properties: {}
+        api.admin.v1.ChangePasswordRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                oldPassword:
+                    type: string
+                newPassword:
+                    type: string
+        api.admin.v1.CreatePermissionReply:
+            type: object
+            properties: {}
+        api.admin.v1.CreatePermissionRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                code:
+                    type: string
+                description:
+                    type: string
+                permissionType:
+                    type: integer
+                    format: int32
+                parentId:
+                    type: integer
+                    format: int32
+        api.admin.v1.CreateRoleReply:
+            type: object
+            properties: {}
+        api.admin.v1.CreateRoleRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                code:
+                    type: string
+                description:
+                    type: string
+        api.admin.v1.CreateRoomReply:
+            type: object
+            properties: {}
+        api.admin.v1.CreateRoomRequest:
+            type: object
+            properties:
+                code:
+                    type: string
+                subjects:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+        api.admin.v1.CreateSubjectReply:
+            type: object
+            properties: {}
+        api.admin.v1.CreateSubjectRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+        api.admin.v1.CreateTeacherReply:
+            type: object
+            properties: {}
+        api.admin.v1.CreateTeacherRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+        api.admin.v1.CreateTenantReply:
+            type: object
+            properties: {}
+        api.admin.v1.CreateTenantRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                mobile:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+            description: tenant
+        api.admin.v1.CreateUserReply:
+            type: object
+            properties: {}
+        api.admin.v1.CreateUserRequest:
+            type: object
+            properties:
+                username:
+                    type: string
+                password:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                avatar:
+                    type: string
+                description:
+                    type: string
+                roleId:
+                    type: integer
+                    format: int32
+                roleName:
+                    type: string
+        api.admin.v1.DeletePermissionReply:
+            type: object
+            properties: {}
+        api.admin.v1.DeleteRoleReply:
+            type: object
+            properties: {}
+        api.admin.v1.DeleteRoomReply:
+            type: object
+            properties: {}
+        api.admin.v1.DeleteSubjectReply:
+            type: object
+            properties: {}
+        api.admin.v1.DeleteTeacherReply:
+            type: object
+            properties: {}
+        api.admin.v1.DeleteTenantReply:
+            type: object
+            properties: {}
+        api.admin.v1.DeleteUserReply:
+            type: object
+            properties: {}
+        api.admin.v1.GetPermissionReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                permissionType:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                parentId:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.GetPermissionTreeReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.GetPermissionTreeReply_Data'
+        api.admin.v1.GetPermissionTreeReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                permissionType:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+                children:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.GetPermissionTreeReply_Data'
+        api.admin.v1.GetRolePermissionReply:
+            type: object
+            properties:
+                permissions:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+        api.admin.v1.GetRoleReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.GetRoomReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                subjects:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.GetSubjectReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.GetTeacherReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.GetTenantPermissionReply:
+            type: object
+            properties:
+                permissions:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+        api.admin.v1.GetTenantPermissionTreeReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.GetTenantPermissionTreeReply_Data'
+        api.admin.v1.GetTenantPermissionTreeReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                permissionType:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+                children:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.GetTenantPermissionTreeReply_Data'
+        api.admin.v1.GetTenantReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.GetUserReply:
+            type: object
+            properties:
+                username:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                avatar:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                roleId:
+                    type: integer
+                    format: int32
+                roleName:
+                    type: string
+        api.admin.v1.ListPermissionReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListPermissionReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListPermissionReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                permissionType:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        api.admin.v1.ListRoleReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListRoleReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListRoleReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        api.admin.v1.ListRoomReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListRoomReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListRoomReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                subjects:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        api.admin.v1.ListSubjectReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListSubjectReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListSubjectReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        api.admin.v1.ListTeacherReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListTeacherReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListTeacherReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                updatedAt:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListTenantReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListTenantReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListTenantReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                updatedAt:
+                    type: string
+        api.admin.v1.ListUserReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListUserReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        api.admin.v1.ListUserReply_Data:
+            type: object
+            properties:
+                username:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                avatar:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                id:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+                description:
+                    type: string
+                roleId:
+                    type: integer
+                    format: int32
+                roleName:
+                    type: string
+        api.admin.v1.LoginReply:
+            type: object
+            properties:
+                name:
+                    type: string
+                username:
+                    type: string
+                roleId:
+                    type: string
+                token:
+                    type: string
+        api.admin.v1.LoginRequest:
+            type: object
+            properties:
+                username:
+                    type: string
+                password:
+                    type: string
+        api.admin.v1.Permission_Action:
+            type: object
+            properties:
+                action:
+                    type: string
+                describe:
+                    type: string
+                defaultCheck:
+                    type: boolean
+        api.admin.v1.Role_Permission:
+            type: object
+            properties:
+                permissionId:
+                    type: string
+                permissionName:
+                    type: string
+                actionEntitySet:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.Permission_Action'
+        api.admin.v1.SaveRolePermissionReply:
+            type: object
+            properties: {}
+        api.admin.v1.SaveRolePermissionRequest:
+            type: object
+            properties:
+                roleId:
+                    type: integer
+                    format: int32
+                permissions:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+        api.admin.v1.SaveTenantPermissionReply:
+            type: object
+            properties: {}
+        api.admin.v1.SaveTenantPermissionRequest:
+            type: object
+            properties:
+                tenantId:
+                    type: integer
+                    format: int32
+                permissions:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+        api.admin.v1.UpdatePermissionReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdatePermissionRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                description:
+                    type: string
+                permissionType:
+                    type: integer
+                    format: int32
+                parentId:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.UpdateRoleReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateRoleRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                code:
+                    type: string
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.UpdateRoomReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateRoomRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                subjects:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.UpdateSubjectReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateSubjectRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.UpdateTeacherReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateTeacherRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.UpdateTenantReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateTenantRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        api.admin.v1.UpdateUserReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateUserRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                username:
+                    type: string
+                mobile:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                avatar:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                roleId:
+                    type: integer
+                    format: int32
+                roleName:
+                    type: string
+        api.admin.v1.UserInfoReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                username:
+                    type: string
+                name:
+                    type: string
+                mobile:
+                    type: string
+                role:
+                    $ref: '#/components/schemas/api.admin.v1.UserInfoReply_Role'
+        api.admin.v1.UserInfoReply_Role:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                describe:
+                    type: string
+                permissions:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.Role_Permission'
+        helloworld.v1.HelloReply:
+            type: object
+            properties:
+                message:
+                    type: string
+            description: The response message containing the greetings
+        order.v1.CreateOrderReply:
+            type: object
+            properties: {}
+        order.v1.CreateOrderRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+        order.v1.DeleteOrderReply:
+            type: object
+            properties: {}
+        order.v1.GetOrderReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        order.v1.ListOrderReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/order.v1.ListOrderReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        order.v1.ListOrderReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        order.v1.UpdateOrderReply:
+            type: object
+            properties: {}
+        order.v1.UpdateOrderRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        product.v1.CreateCombineSkuItemReply:
+            type: object
+            properties: {}
+        product.v1.CreateCombineSkuItemRequest:
+            type: object
+            properties:
+                combineId:
+                    type: integer
+                    format: int32
+                skuId:
+                    type: integer
+                    format: int32
+                skuCode:
+                    type: string
+                skuName:
+                    type: string
+                skuPrice:
+                    type: number
+                    format: float
+                skuQuantity:
+                    type: integer
+                    format: int32
+            description: combineSkuItem
+        product.v1.CreateCombineSkuReply:
+            type: object
+            properties: {}
+        product.v1.CreateCombineSkuRequest:
+            type: object
+            properties:
+                code:
+                    type: string
+                name:
+                    type: string
+                description:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                itemList:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/product.v1.CreateCombineSkuRequest_Item'
+        product.v1.CreateCombineSkuRequest_Item:
+            type: object
+            properties:
+                combineId:
+                    type: integer
+                    format: int32
+                skuId:
+                    type: integer
+                    format: int32
+                skuCode:
+                    type: string
+                skuName:
+                    type: string
+                skuPrice:
+                    type: number
+                    format: float
+                skuQuantity:
+                    type: integer
+                    format: int32
+        product.v1.CreateSkuReply:
+            type: object
+            properties: {}
+        product.v1.CreateSkuRequest:
+            type: object
+            properties:
+                code:
+                    type: string
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                specifications:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                occupiedQuantity:
+                    type: number
+                    format: float
+                quantity:
+                    type: integer
+                    format: int32
+                unit:
+                    type: string
+            description: sku
+        product.v1.DeleteCombineSkuItemReply:
+            type: object
+            properties: {}
+        product.v1.DeleteCombineSkuReply:
+            type: object
+            properties: {}
+        product.v1.DeleteSkuReply:
+            type: object
+            properties: {}
+        product.v1.GetCombineSkuItemReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                combineId:
+                    type: integer
+                    format: int32
+                skuId:
+                    type: integer
+                    format: int32
+                skuCode:
+                    type: string
+                skuName:
+                    type: string
+                skuPrice:
+                    type: number
+                    format: float
+                skuQuantity:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        product.v1.GetCombineSkuReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                name:
+                    type: string
+                description:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                version:
+                    type: integer
+                    format: int32
+        product.v1.GetSkuReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                specifications:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                occupiedQuantity:
+                    type: number
+                    format: float
+                version:
+                    type: integer
+                    format: int32
+                quantity:
+                    type: integer
+                    format: int32
+                unit:
+                    type: string
+        product.v1.ListCombineSkuItemReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/product.v1.ListCombineSkuItemReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        product.v1.ListCombineSkuItemReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                combineId:
+                    type: integer
+                    format: int32
+                skuId:
+                    type: integer
+                    format: int32
+                skuCode:
+                    type: string
+                skuName:
+                    type: string
+                skuPrice:
+                    type: number
+                    format: float
+                skuQuantity:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        product.v1.ListCombineSkuReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/product.v1.ListCombineSkuReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        product.v1.ListCombineSkuReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                name:
+                    type: string
+                description:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        product.v1.ListSkuReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/product.v1.ListSkuReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        product.v1.ListSkuReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                specifications:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                occupiedQuantity:
+                    type: number
+                    format: float
+                version:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                quantity:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+                unit:
+                    type: string
+        product.v1.PlaceUpCombineSkuReply:
+            type: object
+            properties: {}
+        product.v1.PlaceUpCombineSkuRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        product.v1.PlaceUpSkuReply:
+            type: object
+            properties: {}
+        product.v1.PlaceUpSkuRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        product.v1.TakeDownCombineSkuReply:
+            type: object
+            properties: {}
+        product.v1.TakeDownCombineSkuRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        product.v1.TakeDownSkuReply:
+            type: object
+            properties: {}
+        product.v1.TakeDownSkuRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        product.v1.UpdateCombineSkuItemReply:
+            type: object
+            properties: {}
+        product.v1.UpdateCombineSkuItemRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                combineId:
+                    type: integer
+                    format: int32
+                skuId:
+                    type: integer
+                    format: int32
+                skuCode:
+                    type: string
+                skuName:
+                    type: string
+                skuPrice:
+                    type: number
+                    format: float
+                skuQuantity:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        product.v1.UpdateCombineSkuReply:
+            type: object
+            properties: {}
+        product.v1.UpdateCombineSkuRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                name:
+                    type: string
+                description:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                version:
+                    type: integer
+                    format: int32
+                itemList:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/product.v1.UpdateCombineSkuRequest_Item'
+        product.v1.UpdateCombineSkuRequest_Item:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                combineId:
+                    type: integer
+                    format: int32
+                skuId:
+                    type: integer
+                    format: int32
+                skuCode:
+                    type: string
+                skuName:
+                    type: string
+                skuPrice:
+                    type: number
+                    format: float
+                skuQuantity:
+                    type: integer
+                    format: int32
+        product.v1.UpdateSkuReply:
+            type: object
+            properties: {}
+        product.v1.UpdateSkuRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                name:
+                    type: string
+                category:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                specifications:
+                    type: string
+                price:
+                    type: number
+                    format: float
+                occupiedQuantity:
+                    type: number
+                    format: float
+                version:
+                    type: integer
+                    format: int32
+                quantity:
+                    type: integer
+                    format: int32
+                unit:
+                    type: string
+        workbench.v1.AdjustLessonNumberReply:
+            type: object
+            properties: {}
+        workbench.v1.AdjustLessonNumberRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                numChange:
+                    type: integer
+                    format: int32
+                changeDescription:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.BatchAddCoursePlanDetailReply:
+            type: object
+            properties: {}
+        workbench.v1.BatchAddCoursePlanDetailRequest:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.BatchAddCoursePlanDetailRequest_Data'
+        workbench.v1.BatchAddCoursePlanDetailRequest_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                dayIndex:
+                    type: integer
+                    format: int32
+                dayIndexName:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                roomId:
+                    type: integer
+                    format: int32
+                roomName:
+                    type: string
+                teacherId:
+                    type: integer
+                    format: int32
+                teacherName:
+                    type: string
+                subjectId:
+                    type: integer
+                    format: int32
+                subjectName:
+                    type: string
+                gradeId:
+                    type: integer
+                    format: int32
+                gradeName:
+                    type: string
+                lessonNum:
+                    type: integer
+                    format: int32
+                planNum:
+                    type: integer
+                    format: int32
+                actualNum:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                code:
+                    type: string
+        workbench.v1.CancelDailyLessonReply:
+            type: object
+            properties: {}
+        workbench.v1.CancelDailyLessonRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.CreateCoursePlanDetailReply:
+            type: object
+            properties: {}
+        workbench.v1.CreateCoursePlanDetailRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                dayIndex:
+                    type: integer
+                    format: int32
+                dayIndexName:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                roomId:
+                    type: integer
+                    format: int32
+                roomName:
+                    type: string
+                teacherId:
+                    type: integer
+                    format: int32
+                teacherName:
+                    type: string
+                subjectId:
+                    type: integer
+                    format: int32
+                subjectName:
+                    type: string
+                gradeId:
+                    type: integer
+                    format: int32
+                gradeName:
+                    type: string
+                lessonNum:
+                    type: integer
+                    format: int32
+                planNum:
+                    type: integer
+                    format: int32
+                actualNum:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+        workbench.v1.CreateCoursePlanReply:
+            type: object
+            properties: {}
+        workbench.v1.CreateCoursePlanRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                description:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                cycleType:
+                    type: integer
+                    format: int32
+                excludeRule:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.CreateCoursePlanRequest_ExcludeRule'
+            description: coursePlan
+        workbench.v1.CreateCoursePlanRequest_ExcludeRule:
+            type: object
+            properties:
+                excludeType:
+                    type: integer
+                    format: int32
+                excludeDate:
+                    type: array
+                    items:
+                        type: string
+        workbench.v1.CreateCoursePlanStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.CreateCoursePlanStudentRequest:
+            type: object
+            properties:
+                customerPhone:
+                    type: string
+                studentId:
+                    type: integer
+                    format: int32
+                studentName:
+                    type: string
+                planId:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                planDetailId:
+                    type: integer
+                    format: int32
+            description: coursePlanStudent
+        workbench.v1.CreateCustomerReply:
+            type: object
+            properties: {}
+        workbench.v1.CreateCustomerRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                mobile:
+                    type: string
+                community:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+            description: customer
+        workbench.v1.CreateDailyLessonReply:
+            type: object
+            properties: {}
+        workbench.v1.CreateDailyLessonRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                dayIndex:
+                    type: integer
+                    format: int32
+                dayIndexName:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                roomId:
+                    type: integer
+                    format: int32
+                roomName:
+                    type: string
+                teacherId:
+                    type: integer
+                    format: int32
+                teacherName:
+                    type: string
+                subjectId:
+                    type: integer
+                    format: int32
+                subjectName:
+                    type: string
+                gradeId:
+                    type: integer
+                    format: int32
+                gradeName:
+                    type: string
+                lessonNum:
+                    type: integer
+                    format: int32
+                planNum:
+                    type: integer
+                    format: int32
+                actualNum:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+        workbench.v1.CreateStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.CreateStudentRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                mobile:
+                    type: string
+                description:
+                    type: string
+                birthday:
+                    type: string
+        workbench.v1.CreateTaskReply:
+            type: object
+            properties: {}
+        workbench.v1.CreateTaskRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                description:
+                    type: string
+                parentId:
+                    type: integer
+                    format: int32
+                parentName:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+        workbench.v1.Data_ExcludeRule:
+            type: object
+            properties:
+                excludeType:
+                    type: integer
+                    format: int32
+                excludeDate:
+                    type: array
+                    items:
+                        type: string
+        workbench.v1.DeleteCoursePlanDetailReply:
+            type: object
+            properties: {}
+        workbench.v1.DeleteCoursePlanReply:
+            type: object
+            properties: {}
+        workbench.v1.DeleteCoursePlanStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.DeleteCustomerReply:
+            type: object
+            properties: {}
+        workbench.v1.DeleteDailyLessonReply:
+            type: object
+            properties: {}
+        workbench.v1.DeleteStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.DeleteTaskReply:
+            type: object
+            properties: {}
+        workbench.v1.DeleteTaskRequest:
+            type: object
+            properties:
+                ids:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+                name:
+                    type: string
+        workbench.v1.FinishDailyLessonReply:
+            type: object
+            properties: {}
+        workbench.v1.FinishDailyLessonRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.GetCoursePlanDetailReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                DayIndex:
+                    type: integer
+                    format: int32
+                StartTime:
+                    type: string
+                EndTime:
+                    type: string
+                RoomId:
+                    type: integer
+                    format: int32
+                RoomName:
+                    type: string
+                TeacherId:
+                    type: integer
+                    format: int32
+                TeacherName:
+                    type: string
+                SubjectId:
+                    type: integer
+                    format: int32
+                SubjectName:
+                    type: string
+                GradeId:
+                    type: integer
+                    format: int32
+                GradeName:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.GetCoursePlanReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                description:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                cycleType:
+                    type: integer
+                    format: int32
+                excludeRule:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.GetCoursePlanReply_ExcludeRule'
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.GetCoursePlanReply_ExcludeRule:
+            type: object
+            properties:
+                excludeType:
+                    type: integer
+                    format: int32
+                excludeDate:
+                    type: array
+                    items:
+                        type: string
+        workbench.v1.GetCoursePlanStudentReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                customerPhone:
+                    type: string
+                studentId:
+                    type: integer
+                    format: int32
+                studentName:
+                    type: string
+                planId:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                planDetailId:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.GetCustomerReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                community:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.GetDailyLessonReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                DayIndex:
+                    type: integer
+                    format: int32
+                StartTime:
+                    type: string
+                EndTime:
+                    type: string
+                RoomId:
+                    type: integer
+                    format: int32
+                RoomName:
+                    type: string
+                TeacherId:
+                    type: integer
+                    format: int32
+                TeacherName:
+                    type: string
+                SubjectId:
+                    type: integer
+                    format: int32
+                SubjectName:
+                    type: string
+                GradeId:
+                    type: integer
+                    format: int32
+                GradeName:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+        workbench.v1.GetStudentReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                description:
+                    type: string
+                birthday:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.GetTaskReply:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                description:
+                    type: string
+                parentId:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.LeaveDailyLessonStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.LeaveDailyLessonStudentRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.ListAllCoursePlanDetailReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListAllCoursePlanDetailReply_Data'
+        workbench.v1.ListAllCoursePlanDetailReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                dayIndex:
+                    type: integer
+                    format: int32
+                dayIndexName:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                roomId:
+                    type: integer
+                    format: int32
+                roomName:
+                    type: string
+                teacherId:
+                    type: integer
+                    format: int32
+                teacherName:
+                    type: string
+                subjectId:
+                    type: integer
+                    format: int32
+                subjectName:
+                    type: string
+                gradeId:
+                    type: integer
+                    format: int32
+                gradeName:
+                    type: string
+                lessonNum:
+                    type: integer
+                    format: int32
+                planNum:
+                    type: integer
+                    format: int32
+                actualNum:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                code:
+                    type: string
+        workbench.v1.ListCoursePlanDetailReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListCoursePlanDetailReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListCoursePlanDetailReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                dayIndex:
+                    type: integer
+                    format: int32
+                dayIndexName:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                roomId:
+                    type: integer
+                    format: int32
+                roomName:
+                    type: string
+                teacherId:
+                    type: integer
+                    format: int32
+                teacherName:
+                    type: string
+                subjectId:
+                    type: integer
+                    format: int32
+                subjectName:
+                    type: string
+                gradeId:
+                    type: integer
+                    format: int32
+                gradeName:
+                    type: string
+                lessonNum:
+                    type: integer
+                    format: int32
+                planNum:
+                    type: integer
+                    format: int32
+                actualNum:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                code:
+                    type: string
+        workbench.v1.ListCoursePlanReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListCoursePlanReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListCoursePlanReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                description:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                cycleType:
+                    type: integer
+                    format: int32
+                excludeRule:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.Data_ExcludeRule'
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        workbench.v1.ListCoursePlanStudentReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListCoursePlanStudentReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListCoursePlanStudentReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                customerPhone:
+                    type: string
+                studentId:
+                    type: integer
+                    format: int32
+                studentName:
+                    type: string
+                planId:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                planDetailId:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        workbench.v1.ListCustomerReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListCustomerReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListCustomerReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                lessonNumber:
+                    type: integer
+                    format: int32
+                community:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        workbench.v1.ListDailyLessonReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListDailyLessonReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListDailyLessonReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                planDatailId:
+                    type: integer
+                    format: int32
+                dateOfDay:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                roomId:
+                    type: integer
+                    format: int32
+                roomName:
+                    type: string
+                teacherId:
+                    type: integer
+                    format: int32
+                teacherName:
+                    type: string
+                subjectId:
+                    type: integer
+                    format: int32
+                subjectName:
+                    type: string
+                gradeId:
+                    type: integer
+                    format: int32
+                gradeName:
+                    type: string
+                lessonNum:
+                    type: integer
+                    format: int32
+                planNum:
+                    type: integer
+                    format: int32
+                actualNum:
+                    type: integer
+                    format: int32
+                signNum:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                courseCode:
+                    type: string
+        workbench.v1.ListDailyLessonStudentReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListDailyLessonStudentReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListDailyLessonStudentReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                planDetailId:
+                    type: integer
+                    format: int32
+                lessonId:
+                    type: integer
+                    format: int32
+                customerPhone:
+                    type: string
+                studentId:
+                    type: integer
+                    format: int32
+                studentName:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                updatedAt:
+                    type: string
+        workbench.v1.ListLessonHistoryReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListLessonHistoryReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListLessonHistoryReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                mobile:
+                    type: string
+                originNum:
+                    type: integer
+                    format: int32
+                numChange:
+                    type: integer
+                    format: int32
+                sourceType:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
+                updatedAt:
+                    type: string
+        workbench.v1.ListStudentReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListStudentReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListStudentReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                birthday:
+                    type: string
+                description:
+                    type: string
+                updatedAt:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.ListTaskReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListTaskReply_Data'
+                total:
+                    type: integer
+                    format: int32
+        workbench.v1.ListTaskReply_Data:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                description:
+                    type: string
+                parentId:
+                    type: integer
+                    format: int32
+                parentName:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+                children:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.ListTaskReply_Data'
+        workbench.v1.ReleaseCoursePlanReply:
+            type: object
+            properties:
+                successNum:
+                    type: integer
+                    format: int32
+                failureNum:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        workbench.v1.ReleaseCoursePlanRequest:
+            type: object
+            properties:
+                idList:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+        workbench.v1.ScheduleDateForCoursePlanDetailReply:
+            type: object
+            properties: {}
+        workbench.v1.ScheduleDateForCoursePlanDetailRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.ScheduleDateForCoursePlanReply:
+            type: object
+            properties: {}
+        workbench.v1.ScheduleDateForCoursePlanRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                detailIds:
+                    type: array
+                    items:
+                        type: integer
+                        format: int32
+        workbench.v1.SignDailyLessonStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.SignDailyLessonStudentRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.StartDailyLessonReply:
+            type: object
+            properties: {}
+        workbench.v1.StartDailyLessonRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.StopCoursePlanDetailReply:
+            type: object
+            properties: {}
+        workbench.v1.StopCoursePlanDetailRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.StopCoursePlanStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.StopCoursePlanStudentRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+        workbench.v1.UpdateCoursePlanDetailReply:
+            type: object
+            properties: {}
+        workbench.v1.UpdateCoursePlanDetailRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                code:
+                    type: string
+                planId:
+                    type: integer
+                    format: int32
+                dayIndex:
+                    type: integer
+                    format: int32
+                dayIndexName:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                roomId:
+                    type: integer
+                    format: int32
+                roomName:
+                    type: string
+                teacherId:
+                    type: integer
+                    format: int32
+                teacherName:
+                    type: string
+                subjectId:
+                    type: integer
+                    format: int32
+                subjectName:
+                    type: string
+                gradeId:
+                    type: integer
+                    format: int32
+                gradeName:
+                    type: string
+                lessonNum:
+                    type: integer
+                    format: int32
+                planNum:
+                    type: integer
+                    format: int32
+                actualNum:
+                    type: integer
+                    format: int32
+                status:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.UpdateCoursePlanReply:
+            type: object
+            properties: {}
+        workbench.v1.UpdateCoursePlanRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                description:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                cycleType:
+                    type: integer
+                    format: int32
+                excludeRule:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/workbench.v1.UpdateCoursePlanRequest_ExcludeRule'
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.UpdateCoursePlanRequest_ExcludeRule:
+            type: object
+            properties:
+                excludeType:
+                    type: integer
+                    format: int32
+                excludeDate:
+                    type: array
+                    items:
+                        type: string
+        workbench.v1.UpdateCoursePlanStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.UpdateCoursePlanStudentRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                customerPhone:
+                    type: string
+                studentId:
+                    type: integer
+                    format: int32
+                studentName:
+                    type: string
+                planId:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                planDetailId:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.UpdateCustomerReply:
+            type: object
+            properties: {}
+        workbench.v1.UpdateCustomerRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                community:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.UpdateDailyLessonReply:
+            type: object
+            properties: {}
+        workbench.v1.UpdateDailyLessonRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                planId:
+                    type: integer
+                    format: int32
+                DayIndex:
+                    type: integer
+                    format: int32
+                StartTime:
+                    type: string
+                EndTime:
+                    type: string
+                RoomId:
+                    type: integer
+                    format: int32
+                RoomName:
+                    type: string
+                TeacherId:
+                    type: integer
+                    format: int32
+                TeacherName:
+                    type: string
+                SubjectId:
+                    type: integer
+                    format: int32
+                SubjectName:
+                    type: string
+                GradeId:
+                    type: integer
+                    format: int32
+                GradeName:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+                planName:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+        workbench.v1.UpdateStudentReply:
+            type: object
+            properties: {}
+        workbench.v1.UpdateStudentRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                mobile:
+                    type: string
+                description:
+                    type: string
+                birthday:
+                    type: string
+                version:
+                    type: integer
+                    format: int32
+        workbench.v1.UpdateTaskReply:
+            type: object
+            properties: {}
+        workbench.v1.UpdateTaskRequest:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int32
+                name:
+                    type: string
+                description:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                version:
+                    type: integer
+                    format: int32
+tags:
+    - name: Auth
+    - name: Course
+    - name: Customer
+    - name: Dossier
+    - name: Greeter
+      description: The greeting service definition.
+    - name: Order
+    - name: Product
+    - name: Task
+      description: todo

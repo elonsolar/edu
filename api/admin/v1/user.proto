@@ -1,0 +1,840 @@
+syntax = "proto3";
+package api.admin.v1;
+
+
+import "google/api/annotations.proto";
+
+option go_package = "edu/api/admin/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.admin.v1";
+
+service Dossier {
+	rpc CreateTenant (CreateTenantRequest) returns (CreateTenantReply){
+		option (google.api.http) = {
+			post: "/tenant"
+			body:"*"
+		};
+	};
+	rpc UpdateTenant (UpdateTenantRequest) returns (UpdateTenantReply){
+		option (google.api.http) = {
+			put: "/tenant/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteTenant (DeleteTenantRequest) returns (DeleteTenantReply){
+		option (google.api.http) = {
+			delete: "/tenant/{id}"
+		};
+	};
+	rpc GetTenant (GetTenantRequest) returns (GetTenantReply){
+		option (google.api.http) = {
+			get: "/tenant"
+		};
+	};
+	rpc ListTenant (ListTenantRequest) returns (ListTenantReply){
+		option (google.api.http) = {
+			get: "/tenant/page"
+		};
+	};
+
+	rpc GetTenantPermissionTree (GetTenantPermissionTreeRequest) returns (GetTenantPermissionTreeReply){
+		option (google.api.http) = {
+			get: "/tenant/permission-tree"
+		};
+	};
+
+	rpc GetTenantPermission (GetTenantPermissionRequest) returns (GetTenantPermissionReply){
+		option (google.api.http) = {
+			get: "/tenant/permission"
+		};
+	};
+
+	rpc SaveTenantPermission (SaveTenantPermissionRequest) returns (SaveTenantPermissionReply){
+		option (google.api.http) = {
+			post: "/tenant/permission"
+			body:"*"
+		};
+	};
+
+	rpc CreateUser (CreateUserRequest) returns (CreateUserReply){
+		option (google.api.http) = {
+			post: "/user"
+			body:"*"
+		};
+	};
+
+	rpc UpdateUser (UpdateUserRequest) returns (UpdateUserReply){
+		option (google.api.http) = {
+			put: "/user/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteUser (DeleteUserRequest) returns (DeleteUserReply){
+		option (google.api.http) = {
+			delete: "/user/{id}"
+		};
+	};
+	rpc GetUser (GetUserRequest) returns (GetUserReply){
+		option (google.api.http) = {
+			get: "/user"
+		};
+	};
+	rpc ListUser (ListUserRequest) returns (ListUserReply){
+		option (google.api.http) = {
+			get: "/user/page"
+		};
+	};
+	rpc ChangPassword (ChangePasswordRequest) returns (ChangePasswordReply){
+		option (google.api.http) = {
+			post: "/user/change-password"
+			body:"*"
+		};
+	};
+
+	// teacher
+	rpc CreateTeacher (CreateTeacherRequest) returns (CreateTeacherReply){
+	    option (google.api.http) = {
+	        post: "/teacher"
+	        body:"*"
+	    };
+	};
+	rpc UpdateTeacher (UpdateTeacherRequest) returns (UpdateTeacherReply){
+	    option (google.api.http) = {
+	        put: "/teacher/{id}"
+	        body:"*"
+	    };
+	};
+	rpc DeleteTeacher (DeleteTeacherRequest) returns (DeleteTeacherReply){
+	    option (google.api.http) = {
+	        delete: "/teacher/{id}"
+	    };
+	};
+	rpc GetTeacher (GetTeacherRequest) returns (GetTeacherReply){
+	    option (google.api.http) = {
+	        get: "/teacher"
+	    };
+	};
+	rpc ListTeacher (ListTeacherRequest) returns (ListTeacherReply){
+	    option (google.api.http) = {
+	        get: "/teacher/page"
+	    };
+	};
+	
+	// classroom
+	rpc CreateRoom (CreateRoomRequest) returns (CreateRoomReply){
+		option (google.api.http) = {
+			post: "/room"
+			body:"*"
+		};
+	};
+	rpc UpdateRoom (UpdateRoomRequest) returns (UpdateRoomReply){
+		option (google.api.http) = {
+			put: "/room/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteRoom (DeleteRoomRequest) returns (DeleteRoomReply){
+		option (google.api.http) = {
+			delete: "/room/{id}"
+		};
+	};
+	rpc GetRoom (GetRoomRequest) returns (GetRoomReply){
+		option (google.api.http) = {
+			get: "/room"
+		};
+	};
+	rpc ListRoom (ListRoomRequest) returns (ListRoomReply){
+		option (google.api.http) = {
+			get: "/room/page"
+		};
+	};
+	
+	// subject
+	rpc CreateSubject (CreateSubjectRequest) returns (CreateSubjectReply){
+		option (google.api.http) = {
+			post: "/subject"
+			body:"*"
+		};
+	};
+	rpc UpdateSubject (UpdateSubjectRequest) returns (UpdateSubjectReply){
+		option (google.api.http) = {
+			put: "/subject/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteSubject (DeleteSubjectRequest) returns (DeleteSubjectReply){
+		option (google.api.http) = {
+			delete: "/subject/{id}"
+		};
+	};
+	rpc GetSubject (GetSubjectRequest) returns (GetSubjectReply){
+		option (google.api.http) = {
+			get: "/subject"
+		};
+	};
+	rpc ListSubject (ListSubjectRequest) returns (ListSubjectReply){
+		option (google.api.http) = {
+			get: "/subject/page"
+		};
+	};
+
+
+	
+}
+
+
+// tenant
+message CreateTenantRequest {
+	string name =2;
+	string mobile=3;
+	string description =4;
+
+	int32 status=5; 
+}
+message CreateTenantReply {}
+
+message UpdateTenantRequest {
+	int32 id=1;
+	string name =2;
+	string mobile=3;
+	string description =4;
+
+	int32 status=5; 
+	int32 version =7;
+}
+message UpdateTenantReply {}
+
+message DeleteTenantRequest {
+	string id =1;
+}
+message DeleteTenantReply {}
+
+message GetTenantRequest {
+	int32 id=1;
+}
+message GetTenantReply {
+	int32 id=1;
+	string name =2;
+	string mobile=3;
+	string description =4;
+
+	int32 status=5; 
+	int32 version =7;
+}
+
+message ListTenantRequest {
+	string expr =1;
+
+	int32 page_no =2;
+	int32 page_size =3;
+}
+message ListTenantReply {
+	message Data{
+		int32 id=1;
+		string name = 2;
+		string mobile = 3;
+		int32 status = 4;
+		int32 version = 6;
+		string description=7;
+		string updated_at=8;
+	}
+	repeated Data data=1;
+	int32 total=2;
+}
+
+
+message GetTenantPermissionTreeRequest{
+
+	int32 parent_id=1;
+	int32 tenant_id=2;
+	int32 permission_type=3;
+
+}
+message GetTenantPermissionTreeReply{
+
+	message Data {
+			int32 id=1;
+			string name =2;
+			string code = 3;
+			int32 permission_type = 4;
+			string description = 5;
+			int32 version =6;
+			string updated_at =7;
+			repeated Data children=8;
+	}
+	repeated Data data=2;
+}
+
+message GetTenantPermissionRequest {
+	int32 tenant_id=1;
+
+}
+
+message GetTenantPermissionReply {
+
+	repeated int32 permissions=1;
+}
+
+message SaveTenantPermissionRequest {
+	int32 tenant_id =1;
+	repeated int32  permissions =2;
+
+}
+
+message SaveTenantPermissionReply {
+
+}
+
+
+message CreateUserRequest {
+	string username = 1;
+	string password = 2;
+	string mobile = 3;
+	int32 status = 4;
+	string avatar = 5;
+	string description=6;
+	int32 role_id =7;
+	string role_name =8;
+}
+message CreateUserReply {}
+
+message UpdateUserRequest {
+	int32 id=1;
+	string username =3;
+	string mobile =4;
+	int32 status = 5;
+	string avatar = 6;
+	int32 version =7;
+	string description=8;
+	int32 role_id =9;
+	string role_name =10;
+}
+message UpdateUserReply {}
+
+message DeleteUserRequest {
+	string id =1;
+}
+message DeleteUserReply {}
+
+message GetUserRequest {
+	int32 id=1;
+}
+message GetUserReply {
+	string username = 1;
+	string mobile = 3;
+	int32 status = 4;
+	string avatar = 5;
+	int32 version = 6;
+	string description=7;
+
+	int32 role_id =8;
+	string role_name =9;
+}
+
+message ListUserRequest {
+	string expr =1;
+
+	int32 page_no =2;
+	int32 page_size =3;
+}
+message ListUserReply {
+	message Data{
+		string username = 1;
+		string mobile = 3;
+		int32 status = 4;
+		string avatar = 5;
+		int32 version =6;
+		int32 id =7;
+		string updated_at=8;
+		string description =9;
+
+		int32 role_id =10;
+		string role_name =11;
+	}
+	repeated Data data=1;
+	int32 total=2;
+}
+
+message ChangePasswordRequest{
+	int32 id=1;
+	string old_password=2;
+	string new_password=3;
+}
+
+message ChangePasswordReply{
+
+}
+
+
+message CreateTeacherRequest {
+    string name = 1;
+    string mobile = 2;
+    int32 status = 3;
+    string description = 4;
+}
+message CreateTeacherReply {}
+
+message UpdateTeacherRequest {
+    int32 id=1;
+    string name =2;
+    string mobile =3;
+    int32 status = 4;
+    string description = 5;
+	int32 version =6;
+}
+message UpdateTeacherReply {}
+
+message DeleteTeacherRequest {
+	int32 id =1;
+}
+message DeleteTeacherReply {}
+
+message GetTeacherRequest {
+	int32 id =1;
+}
+message GetTeacherReply {
+    int32 id=1;
+    string name =2;
+    string mobile =3;
+    int32 status = 4;
+    string description = 5;
+	int32 version =6;
+}
+
+message ListTeacherRequest {
+	string expr =1;
+
+	int32 page_no =2;
+	int32 page_size =3;
+}
+message ListTeacherReply {
+
+	message Data{
+		int32 id =1;
+		string name = 2;
+		string mobile = 3;
+		int32 status = 4;
+    	string description = 5;
+		string updated_at =6;
+		int32 version =7;
+	}
+	repeated Data data=1;
+	int32 total=2;
+}
+
+	
+	
+
+// room
+	
+	message CreateRoomRequest {
+		string code = 1;
+		repeated int32 subjects = 2;
+		string description = 3;
+		int32 status = 4;
+	}
+	message CreateRoomReply {}
+	
+	message UpdateRoomRequest {
+		int32 id=1;
+		string code = 2;
+		repeated int32 subjects = 3;
+		string description = 4;
+		int32 status = 5;
+		int32 version =6;
+	}
+	message UpdateRoomReply {}
+	
+	message DeleteRoomRequest {
+		int32 id =1;
+	}
+	message DeleteRoomReply {}
+	
+	message GetRoomRequest {
+		int32 id =1;
+	}
+	message GetRoomReply {
+		int32 id=1;
+		string code = 2;
+		repeated int32 subjects = 3;
+		string description = 4;
+		int32 status = 5;
+		int32 version =6;
+	}
+	
+	message ListRoomRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListRoomReply {
+	
+		message Data{
+			int32 id=1;
+			string code =2;
+			repeated int32 subjects =3;
+			string description = 4;
+			int32 status = 5;
+			int32 version =6;
+			string updated_at=7;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+
+// subject
+	
+	message CreateSubjectRequest {
+		string name = 1;
+		int32 category = 2;
+		string description = 4;
+		int32  status = 3;
+	}
+	message CreateSubjectReply {}
+	
+	message UpdateSubjectRequest {
+		int32 id=1;
+		string name = 2;
+		int32 category = 3;
+		string description = 4;
+		int32  status = 5;
+		int32 version =6;
+	}
+	message UpdateSubjectReply {}
+	
+	message DeleteSubjectRequest {
+		int32 id =1;
+	}
+	message DeleteSubjectReply {}
+	
+	message GetSubjectRequest {
+		int32 id =1;
+	}
+	message GetSubjectReply {
+		int32 id=1;
+		string name = 2;
+		int32 category = 3;
+		string description = 4;
+		int32  status = 5;
+		int32 version =6;
+	}
+	
+	message ListSubjectRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListSubjectReply {
+	
+		message Data{
+			int32 id=1;
+			string name =2;
+			int32 category = 3;
+			int32 status = 4;
+			string description = 5;
+			int32 version =6;
+			string updated_at =7;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+
+
+	
+service Auth {
+	rpc Login (LoginRequest) returns (LoginReply){
+		option (google.api.http) = {
+			post: "/auth/login"
+			body:"*"
+		};
+	};
+
+	rpc getUserInfo(UserInfoRequest)returns (UserInfoReply){
+		option (google.api.http) = {
+			get: "/auth/user"
+		};
+	}
+
+	// permission
+	rpc CreatePermission (CreatePermissionRequest) returns (CreatePermissionReply){
+		option (google.api.http) = {
+			post: "/permission"
+			body:"*"
+		};
+	};
+	rpc UpdatePermission (UpdatePermissionRequest) returns (UpdatePermissionReply){
+		option (google.api.http) = {
+			put: "/permission/{id}"
+			body:"*"
+		};
+	};
+	rpc DeletePermission (DeletePermissionRequest) returns (DeletePermissionReply){
+		option (google.api.http) = {
+			delete: "/permission/{id}"
+		};
+	};
+	rpc GetPermission (GetPermissionRequest) returns (GetPermissionReply){
+		option (google.api.http) = {
+			get: "/permission"
+		};
+	};
+	rpc ListPermission (ListPermissionRequest) returns (ListPermissionReply){
+		option (google.api.http) = {
+			get: "/permission/page"
+		};
+	};
+
+	rpc GetPermissionTree (GetPermissionTreeRequest) returns (GetPermissionTreeReply){
+		option (google.api.http) = {
+			get: "/permission/tree"
+		};
+	};
+
+	
+
+	//role 
+	rpc CreateRole (CreateRoleRequest) returns (CreateRoleReply){
+		option (google.api.http) = {
+			post: "/role"
+			body:"*"
+		};
+	};
+	rpc UpdateRole (UpdateRoleRequest) returns (UpdateRoleReply){
+		option (google.api.http) = {
+			put: "/role/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteRole (DeleteRoleRequest) returns (DeleteRoleReply){
+		option (google.api.http) = {
+			delete: "/role/{id}"
+		};
+	};
+	rpc GetRole (GetRoleRequest) returns (GetRoleReply){
+		option (google.api.http) = {
+			get: "/role"
+		};
+	};
+	rpc ListRole (ListRoleRequest) returns (ListRoleReply){
+		option (google.api.http) = {
+			get: "/role/page"
+		};
+	};
+
+	rpc GetRolePermission (GetRolePermissionRequest) returns (GetRolePermissionReply){
+		option (google.api.http) = {
+			get: "/role/permission"
+		};
+	};
+
+	rpc SaveRolePermission (SaveRolePermissionRequest) returns (SaveRolePermissionReply){
+		option (google.api.http) = {
+			post: "/role/permission"
+			body:"*"
+		};
+	};
+	
+
+}
+
+message LoginRequest{
+	string username =1;
+	string password =2;
+}
+message LoginReply{
+	string  name =1;
+	string username = 2;
+	string role_id = 3;
+	string token = 4;
+}
+
+message UserInfoRequest{
+
+}
+
+message UserInfoReply{
+	int32 id =1;
+	string username =2;
+	string name =3;
+	string mobile =4;
+
+	message Role{
+   		int32 id=1;
+    	string name=2;
+    	string describe=3;
+		message Permission{
+			string permission_id=1;
+			string permission_name=2;
+			message Action{
+ 	         string action=1;
+ 	         string describe=2;
+ 	         bool defaultCheck=3;
+			}
+        	repeated Action actionEntitySet=3;
+		}
+		repeated Permission permissions =4;
+	}
+	Role role =5;
+
+
+
+}
+
+
+
+	message CreatePermissionRequest {
+		string name = 1;
+		string code = 2;
+		string description =3;
+		int32 permission_type = 4;
+		int32 parent_id =5;
+	}
+	message CreatePermissionReply {}
+	
+	message UpdatePermissionRequest {
+		int32 id =1;
+		string name = 2;
+		string code = 3;
+		string description =4;
+		int32 permission_type = 5;
+		int32 parent_id =6;
+		int32  version = 8;
+	}
+	message UpdatePermissionReply {}
+	
+	message DeletePermissionRequest {
+		int32 id =1;
+	}
+	message DeletePermissionReply {}
+	
+	message GetPermissionRequest {
+		int32 id =1;
+	}
+	message GetPermissionReply {
+		int32 id=1;
+		string name = 2;
+		string code = 3;
+		int32 permission_type =4;
+		string description = 5;
+		int32 parent_id=6;
+		int32  status = 7;
+		int32 version =8;
+	}
+	
+	message ListPermissionRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListPermissionReply {
+	
+		message Data{
+			int32 id=1;
+			string name =2;
+			string code = 3;
+			int32 permission_type = 4;
+			string description = 5;
+			int32 version =6;
+			string updated_at =7;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+
+message GetPermissionTreeRequest{
+
+	int32 parent_id=1;
+	int32 permission_type=2;
+
+}
+message GetPermissionTreeReply{
+
+	message Data {
+			int32 id=1;
+			string name =2;
+			string code = 3;
+			int32 permission_type = 4;
+			string description = 5;
+			int32 version =6;
+			string updated_at =7;
+			repeated Data children=8;
+	}
+	repeated Data data=2;
+}
+
+
+message CreateRoleRequest {
+	string name = 1;
+	string code = 2;
+	string description =3;
+}
+message CreateRoleReply {}
+
+message UpdateRoleRequest {
+	int32 id =1;
+	string name = 2;
+	string code = 3;
+	string description =4;
+	int32  version = 5;
+}
+message UpdateRoleReply {}
+
+message DeleteRoleRequest {
+	int32 id =1;
+}
+message DeleteRoleReply {}
+
+message GetRoleRequest {
+	int32 id =1;
+}
+message GetRoleReply {
+	int32 id=1;
+	string name = 2;
+	string code = 3;
+	string description =4;
+	int32 version =5;
+}
+
+message ListRoleRequest {
+	string expr =1;
+
+	int32 page_no =2;
+	int32 page_size =3;
+}
+message ListRoleReply {
+
+	message Data{
+		int32 id=1;
+		string name =2;
+		string code = 3;
+		string description = 5;
+		int32 version =6;
+		string updated_at =7;
+	}
+	repeated Data data=1;
+	int32 total=2;
+}
+
+
+message GetRolePermissionRequest {
+	int32 role_id=1;
+
+}
+
+message GetRolePermissionReply {
+
+	repeated int32 permissions=1;
+}
+
+message SaveRolePermissionRequest {
+	int32 role_id =1;
+	repeated int32  permissions =2;
+
+}
+
+message SaveRolePermissionReply {
+
+}

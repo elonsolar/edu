@@ -1,0 +1,397 @@
+syntax = "proto3";
+
+package product.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "edu/api/product/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.product.v1";
+option java_outer_classname = "saleProtoV1";
+
+service Product {
+
+    // sku
+	rpc CreateSku (CreateSkuRequest) returns (CreateSkuReply){
+		option (google.api.http) = {
+			post: "/sku"
+			body:"*"
+		};
+	};
+	rpc UpdateSku (UpdateSkuRequest) returns (UpdateSkuReply){
+		option (google.api.http) = {
+			put: "/sku/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteSku (DeleteSkuRequest) returns (DeleteSkuReply){
+		option (google.api.http) = {
+			delete: "/sku/{id}"
+		};
+	};
+	rpc GetSku (GetSkuRequest) returns (GetSkuReply){
+		option (google.api.http) = {
+			get: "/sku"
+		};
+	};
+	rpc ListSku (ListSkuRequest) returns (ListSkuReply){
+		option (google.api.http) = {
+			get: "/sku/page"
+		};
+	};
+
+    rpc PlaceUpSku(PlaceUpSkuRequest) returns (PlaceUpSkuReply){
+		option (google.api.http) = {
+			post: "/sku/place-up"
+            body: "*"
+		};
+    }
+
+    rpc TakeDownSku(TakeDownSkuRequest) returns (TakeDownSkuReply){
+		option (google.api.http) = {
+			post: "/sku/take-down"
+            body: "*"
+		};
+    }
+
+    // combineSku
+	rpc CreateCombineSku (CreateCombineSkuRequest) returns (CreateCombineSkuReply){
+		option (google.api.http) = {
+			post: "/combine-sku"
+			body:"*"
+		};
+	};
+	rpc UpdateCombineSku (UpdateCombineSkuRequest) returns (UpdateCombineSkuReply){
+		option (google.api.http) = {
+			put: "/combine-sku/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteCombineSku (DeleteCombineSkuRequest) returns (DeleteCombineSkuReply){
+		option (google.api.http) = {
+			delete: "/combine-sku/{id}"
+		};
+	};
+	rpc GetCombineSku (GetCombineSkuRequest) returns (GetCombineSkuReply){
+		option (google.api.http) = {
+			get: "/combine-sku"
+		};
+	};
+	rpc ListCombineSku (ListCombineSkuRequest) returns (ListCombineSkuReply){
+		option (google.api.http) = {
+			get: "/combine-sku/page"
+		};
+	};
+
+    rpc PlaceUpCombineSku(PlaceUpCombineSkuRequest) returns (PlaceUpCombineSkuReply){
+		option (google.api.http) = {
+			post: "/combine-sku/place-up"
+            body: "*"
+		};
+    }
+
+    rpc TakeDownCombineSku(TakeDownCombineSkuRequest) returns (TakeDownCombineSkuReply){
+		option (google.api.http) = {
+			post: "/combine-sku/take-down"
+            body: "*"
+		};
+    }
+
+
+     // combineSkuItem
+	rpc CreateCombineSkuItem (CreateCombineSkuItemRequest) returns (CreateCombineSkuItemReply){
+		option (google.api.http) = {
+			post: "/combine-sku-item"
+			body:"*"
+		};
+	};
+	rpc UpdateCombineSkuItem (UpdateCombineSkuItemRequest) returns (UpdateCombineSkuItemReply){
+		option (google.api.http) = {
+			put: "/combine-sku-item/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteCombineSkuItem (DeleteCombineSkuItemRequest) returns (DeleteCombineSkuItemReply){
+		option (google.api.http) = {
+			delete: "/combine-sku-item/{id}"
+		};
+	};
+	rpc GetCombineSkuItem (GetCombineSkuItemRequest) returns (GetCombineSkuItemReply){
+		option (google.api.http) = {
+			get: "/combine-sku-item"
+		};
+	};
+	rpc ListCombineSkuItem (ListCombineSkuItemRequest) returns (ListCombineSkuItemReply){
+		option (google.api.http) = {
+			get: "/combine-sku-item/page"
+		};
+	};
+  
+}
+
+
+
+ // sku
+ message CreateSkuRequest {
+    string code=1;
+    string name=2;
+    int32 category=3;
+    string description=4;
+    string specifications=5;
+    float price =6;
+    float occupied_quantity=7;
+    int32 quantity =8;
+    string unit=9;
+}
+
+message CreateSkuReply {}
+
+message UpdateSkuRequest {
+    int32 id=1;
+    string code=2;
+    string name=3;
+    int32 category=4;
+    string description=5;
+    string specifications=6;
+    float price =7;
+    float occupied_quantity=8;
+    int32 version =9;
+
+    int32 quantity =10;
+    string unit=11;
+}
+
+message UpdateSkuReply {}
+
+message DeleteSkuRequest {
+    int32 id =1;
+}
+message DeleteSkuReply {}
+
+message GetSkuRequest {
+    int32 id =1;
+}
+message GetSkuReply {
+    int32 id=1;
+    string code=2;
+    string name=3;
+    int32 category=4;
+    string description=5;
+    string specifications=6;
+    float price =7;
+    float occupied_quantity=8;
+    int32 version =9;
+
+    int32 quantity =10;
+    string unit=11;
+}
+
+message ListSkuRequest {
+    string expr =1;
+
+    int32 page_no =2;
+    int32 page_size =3;
+}
+message ListSkuReply {
+
+    message Data{
+        int32 id=1;
+        string code=2;
+        string name=3;
+        int32 category=4;
+        string description=5;
+        string specifications=6;
+        float price =7;
+        float occupied_quantity=8;
+        int32 version =9;
+        int32 status =10;
+        int32 quantity =11;
+        string updated_at =12;
+        string unit=13;
+    }
+    repeated Data data=1;
+    int32 total=2;
+}
+
+
+
+message TakeDownSkuRequest{
+    int32 id=1;
+}
+
+message TakeDownSkuReply{
+
+}
+
+message PlaceUpSkuRequest{
+    int32 id =1;
+}
+
+message PlaceUpSkuReply{
+
+}
+
+
+message CreateCombineSkuRequest {
+    string code=2;
+    string name=3;
+    string description=6;
+    float price =7;
+    message Item {
+        int32 combine_id =1;            //组合商品ID
+        int32 sku_id =2;                //商品ID
+        string sku_code =3;    
+        string sku_name =4;
+        float sku_price =5;
+        int32 sku_quantity=6; 
+    }
+    repeated Item item_list=8;
+}
+
+message CreateCombineSkuReply {}
+
+message UpdateCombineSkuRequest {
+    int32 id=1;
+    string code=2;
+    string name=3;
+    string description=6;
+    float price =7;
+    int32 version =9;
+    message Item {
+        int32 id=1;
+        int32 combine_id =2;            //组合商品ID
+        int32 sku_id =3;                //商品ID
+        string sku_code =4;    
+        string sku_name =5;
+        float sku_price =6;
+        int32 sku_quantity=7; 
+    }
+    repeated Item item_list=10;
+}
+
+message UpdateCombineSkuReply {}
+
+message DeleteCombineSkuRequest {
+    int32 id =1;
+}
+message DeleteCombineSkuReply {}
+
+message GetCombineSkuRequest {
+    int32 id =1;
+}
+message GetCombineSkuReply {
+    int32 id=1;
+    string code=2;
+    string name=3;
+    string description=6;
+    float price =7;
+    int32 version =9;
+}
+
+message ListCombineSkuRequest {
+    string expr =1;
+
+    int32 page_no =2;
+    int32 page_size =3;
+}
+message ListCombineSkuReply {
+
+    message Data{
+        int32 id=1;
+        string code=2;
+        string name=3;
+        string description=6;
+        float price =7;
+        int32 status =8;
+        int32 version =9;
+        string updated_at =12;
+    }
+    repeated Data data=1;
+    int32 total=2;
+}
+
+
+message TakeDownCombineSkuRequest{
+    int32 id=1;
+}
+
+message TakeDownCombineSkuReply{
+
+}
+
+message PlaceUpCombineSkuRequest{
+    int32 id =1;
+}
+
+message PlaceUpCombineSkuReply{
+
+}
+
+
+
+// combineSkuItem
+message CreateCombineSkuItemRequest {
+    int32 combine_id =1;            //组合商品ID
+	int32 sku_id =2;                //商品ID
+	string sku_code =3;    
+	string sku_name =4;
+	float sku_price =5;
+	int32 sku_quantity=6;  // 数量
+}
+
+message CreateCombineSkuItemReply {}
+
+message UpdateCombineSkuItemRequest {
+    int32 id=1;
+    int32 combine_id =2;            //组合商品ID
+	int32 sku_id =3;                //商品ID
+	string sku_code =4;    
+	string sku_name =5;
+	float sku_price =6;
+	int32 sku_quantity=7;  // 数量
+    int32 version =9;
+}
+
+message UpdateCombineSkuItemReply {}
+
+message DeleteCombineSkuItemRequest {
+    int32 id =1;
+}
+message DeleteCombineSkuItemReply {}
+
+message GetCombineSkuItemRequest {
+    int32 id =1;
+}
+message GetCombineSkuItemReply {
+    int32 id=1;
+    int32 combine_id =2;            //组合商品ID
+	int32 sku_id =3;                //商品ID
+	string sku_code =4;    
+	string sku_name =5;
+	float sku_price =6;
+	int32 sku_quantity=7;  // 数量
+    int32 version =9;
+}
+
+message ListCombineSkuItemRequest {
+    string expr =1;
+
+    int32 page_no =2;
+    int32 page_size =3;
+}
+message ListCombineSkuItemReply {
+
+    message Data{
+        int32 id=1;
+        int32 combine_id =2;            //组合商品ID
+	    int32 sku_id =3;                //商品ID
+	    string sku_code =4;    
+	    string sku_name =5;
+	    float sku_price =6;
+	    int32 sku_quantity=7;  // 数量
+        int32 version =9;
+        string updated_at =12;
+    }
+    repeated Data data=1;
+    int32 total=2;
+}

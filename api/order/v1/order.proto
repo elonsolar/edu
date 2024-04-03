@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package order.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "edu/api/order/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.order.v1";
+option java_outer_classname = "orderProtoV1";
+
+service Order{
+
+    // 订单
+    rpc CreateOrder (CreateOrderRequest) returns (CreateOrderReply){
+		option (google.api.http) = {
+			post: "/order"
+			body:"*"
+		};
+	};
+	rpc UpdateOrder (UpdateOrderRequest) returns (UpdateOrderReply){
+		option (google.api.http) = {
+			put: "/order/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteOrder (DeleteOrderRequest) returns (DeleteOrderReply){
+		option (google.api.http) = {
+			delete: "/order/{id}"
+		};
+	};
+	rpc GetOrder (GetOrderRequest) returns (GetOrderReply){
+		option (google.api.http) = {
+			get: "/order"
+		};
+	};
+	rpc ListOrder (ListOrderRequest) returns (ListOrderReply){
+		option (google.api.http) = {
+			get: "/order/page"
+		};
+	};
+
+    
+
+
+    
+
+}
+    message CreateOrderRequest {
+        string name = 1;
+        int32 category = 2;
+        string description = 4;
+        int32  status = 3;
+    }
+    message CreateOrderReply {}
+    
+    message UpdateOrderRequest {
+        int32 id=1;
+        string name = 2;
+        int32 category = 3;
+        string description = 4;
+        int32  status = 5;
+        int32 version =6;
+    }
+    message UpdateOrderReply {}
+    
+    message DeleteOrderRequest {
+        int32 id =1;
+    }
+    message DeleteOrderReply {}
+    
+    message GetOrderRequest {
+        int32 id =1;
+    }
+    message GetOrderReply {
+        int32 id=1;
+        string name = 2;
+        int32 category = 3;
+        string description = 4;
+        int32  status = 5;
+        int32 version =6;
+    }
+    
+    message ListOrderRequest {
+        string expr =1;
+    
+        int32 page_no =2;
+        int32 page_size =3;
+    }
+    message ListOrderReply {
+    
+        message Data{
+            int32 id=1;
+            string name =2;
+            int32 category = 3;
+            int32 status = 4;
+            string description = 5;
+            int32 version =6;
+            string updated_at =7;
+        }
+        repeated Data data=1;
+        int32 total=2;
+    }
+	

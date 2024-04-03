@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package course.v1;
+import "errors/errors.proto";
+
+option go_package = "edu/api/course/v1;v1";
+option java_multiple_files = true;
+option java_package = "course.v1";
+option objc_class_prefix = "APICourseV1";
+
+enum ErrorReason {
+  // 设置缺省错误码
+  option (errors.default_code) = 500;
+  UNKNOW = 0;
+  CONCURRENCY_UPDATE = 2[(errors.code) = 506];
+}

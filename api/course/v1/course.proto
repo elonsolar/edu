@@ -1,0 +1,763 @@
+syntax = "proto3";
+
+package workbench.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "edu/api/coursePlan/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.coursePlan.v1";
+option java_outer_classname = "coursePlanProtoV1";
+
+service Course{
+
+	// coursePlan
+	rpc CreateCoursePlan (CreateCoursePlanRequest) returns (CreateCoursePlanReply){
+		option (google.api.http) = {
+			post: "/course-plan"
+			body:"*"
+		};
+	};
+	rpc UpdateCoursePlan (UpdateCoursePlanRequest) returns (UpdateCoursePlanReply){
+		option (google.api.http) = {
+			put: "/course-plan/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteCoursePlan (DeleteCoursePlanRequest) returns (DeleteCoursePlanReply){
+		option (google.api.http) = {
+			delete: "/course-plan/{id}"
+		};
+	};
+	rpc GetCoursePlan (GetCoursePlanRequest) returns (GetCoursePlanReply){
+		option (google.api.http) = {
+			get: "/course-plan"
+		};
+	};
+	rpc ListCoursePlan (ListCoursePlanRequest) returns (ListCoursePlanReply){
+		option (google.api.http) = {
+			get: "/course-plan/page"
+		};
+	};
+
+	rpc ReleaseCoursePlan (ReleaseCoursePlanRequest) returns (ReleaseCoursePlanReply){
+		option (google.api.http) = {
+			post: "/course-plan/release"
+			body:"*"
+		};
+	};
+
+	rpc ScheduleDateForCoursePlan (ScheduleDateForCoursePlanRequest) returns (ScheduleDateForCoursePlanReply){
+		option (google.api.http) = {
+			post: "/course-plan/shedule-date"
+			body:"*"
+		};
+	};
+
+	// coursePlanDetail
+	rpc CreateCoursePlanDetail (CreateCoursePlanDetailRequest) returns (CreateCoursePlanDetailReply){
+		option (google.api.http) = {
+			post: "/course-plan-detail"
+			body:"*"
+		};
+	};
+	rpc UpdateCoursePlanDetail (UpdateCoursePlanDetailRequest) returns (UpdateCoursePlanDetailReply){
+		option (google.api.http) = {
+			put: "/course-plan-detail/{id}"
+			body:"*"
+		};
+	};
+
+	rpc DeleteCoursePlanDetail (DeleteCoursePlanDetailRequest) returns (DeleteCoursePlanDetailReply){
+		option (google.api.http) = {
+			delete: "/course-plan-detail/{id}"
+		};
+	};
+
+	rpc GetCoursePlanDetail (GetCoursePlanDetailRequest) returns (GetCoursePlanDetailReply){
+		option (google.api.http) = {
+			get: "/course-plan-detail"
+		};
+	};
+	rpc ListCoursePlanDetail (ListCoursePlanDetailRequest) returns (ListCoursePlanDetailReply){
+		option (google.api.http) = {
+			get: "/course-plan-detail/page"
+		};
+	};
+	
+	rpc ListAllCoursePlanDetail (ListAllCoursePlanDetailRequest) returns (ListAllCoursePlanDetailReply){
+		option (google.api.http) = {
+			get: "/course-plan-detail/list-all"
+		};
+	};
+
+	rpc BatchAddCoursePlanDetail (BatchAddCoursePlanDetailRequest) returns (BatchAddCoursePlanDetailReply){
+		option (google.api.http) = {
+			post: "/course-plan-detail/batch-add"
+			body:"*"
+		};
+	};
+    
+	rpc StopCoursePlanDetail (StopCoursePlanDetailRequest) returns (StopCoursePlanDetailReply){
+		option (google.api.http) = {
+			post: "/course-plan-detail/stop"
+			body:"*"
+		};
+	};
+	rpc ScheduleDateForCoursePlanDetail (ScheduleDateForCoursePlanDetailRequest) returns (ScheduleDateForCoursePlanDetailReply){
+		option (google.api.http) = {
+			post: "/course-plan-detail/schedule"
+			body:"*"
+		};
+	};
+	//报名
+	// coursePlan
+	rpc CreateCoursePlanStudent (CreateCoursePlanStudentRequest) returns (CreateCoursePlanStudentReply){
+		option (google.api.http) = {
+			post: "/course-plan-student"
+			body:"*"
+		};
+	};
+	rpc UpdateCoursePlanStudent (UpdateCoursePlanStudentRequest) returns (UpdateCoursePlanStudentReply){
+		option (google.api.http) = {
+			put: "/course-plan-student/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteCoursePlanStudent (DeleteCoursePlanStudentRequest) returns (DeleteCoursePlanStudentReply){
+		option (google.api.http) = {
+			delete: "/course-plan-student/{id}"
+		};
+	};
+	rpc GetCoursePlanStudent (GetCoursePlanStudentRequest) returns (GetCoursePlanStudentReply){
+		option (google.api.http) = {
+			get: "/course-plan-student"
+		};
+	};
+	rpc ListCoursePlanStudent (ListCoursePlanStudentRequest) returns (ListCoursePlanStudentReply){
+		option (google.api.http) = {
+			get: "/course-plan-student/page"
+		};
+	}
+
+	rpc StopCoursePlanStudent (StopCoursePlanStudentRequest) returns (StopCoursePlanStudentReply){
+		option (google.api.http) = {
+			post: "/course-plan-student/stop"
+			body:"*"
+		};
+	};
+
+	// 课表
+		// coursePlanDetail
+		rpc CreateDailyLesson (CreateDailyLessonRequest) returns (CreateDailyLessonReply){
+			option (google.api.http) = {
+				post: "/daily-lesson"
+				body:"*"
+			};
+		};
+		rpc UpdateDailyLesson (UpdateDailyLessonRequest) returns (UpdateDailyLessonReply){
+			option (google.api.http) = {
+				put: "/daily-lesson/{id}"
+				body:"*"
+			};
+		};
+		rpc DeleteDailyLesson (DeleteDailyLessonRequest) returns (DeleteDailyLessonReply){
+			option (google.api.http) = {
+				delete: "/daily-lesson/{id}"
+			};
+		};
+		rpc GetDailyLesson (GetDailyLessonRequest) returns (GetDailyLessonReply){
+			option (google.api.http) = {
+				get: "/daily-lesson"
+			};
+		};
+		rpc ListDailyLesson (ListDailyLessonRequest) returns (ListDailyLessonReply){
+			option (google.api.http) = {
+				get: "/daily-lesson/page"
+			};
+		};
+		rpc StartDailyLesson (StartDailyLessonRequest) returns (StartDailyLessonReply){
+			option (google.api.http) = {
+				post: "/daily-lesson/start"
+				body:"*"
+			};
+		};
+		rpc CancelDailyLesson (CancelDailyLessonRequest) returns (CancelDailyLessonReply){
+			option (google.api.http) = {
+				post: "/daily-lesson/cancel"
+				body:"*"
+			};
+		};
+
+		rpc FinishDailyLesson (FinishDailyLessonRequest) returns (FinishDailyLessonReply){
+			option (google.api.http) = {
+				post: "/daily-lesson/finish"
+				body:"*"
+			};
+		};
+		rpc ListDailyLessonStudent (ListDailyLessonStudentRequest) returns (ListDailyLessonStudentReply){
+			option (google.api.http) = {
+				get: "/daily-lesson-student/page"
+			};
+		};
+
+		rpc SignDailyLessonStudent (SignDailyLessonStudentRequest) returns (SignDailyLessonStudentReply){
+			option (google.api.http) = {
+				post: "/daily-lesson-student/sign"
+				body: "*"
+			};
+		};
+
+		rpc LeaveDailyLessonStudent (LeaveDailyLessonStudentRequest) returns (LeaveDailyLessonStudentReply){
+			option (google.api.http) = {
+				post: "/daily-lesson-student/leave"
+				body: "*"
+			};
+		};
+}
+    // coursePlan
+	message CreateCoursePlanRequest {
+		string name=1;
+		string description=2;
+		string start_time =3;
+		string end_time=4;
+		int32 cycle_type=5;
+		message ExcludeRule {
+			int32 excludeType=1;
+			repeated string excludeDate=2;
+		}
+		repeated ExcludeRule exclude_rule =7;
+	}
+
+	message CreateCoursePlanReply {}
+	
+	message UpdateCoursePlanRequest {
+		int32 id=1;
+		string name=2;
+		string description=3;
+		string start_time =4;
+		string end_time=5;
+		int32 cycle_type=9;
+
+		message ExcludeRule {
+			int32 excludeType=1;
+			repeated string excludeDate=2;
+		}
+		repeated ExcludeRule exclude_rule =7;
+
+		int32 version =10;
+	}
+
+	message UpdateCoursePlanReply {}
+	
+	message DeleteCoursePlanRequest {
+		int32 id =1;
+	}
+	message DeleteCoursePlanReply {}
+	
+	message GetCoursePlanRequest {
+		int32 id =1;
+	}
+	message GetCoursePlanReply {
+		int32 id=1;
+		string name=2;
+		string description=3;
+		string start_time =4;
+		string end_time=5;
+		int32 cycle_type=6;
+		message ExcludeRule {
+			int32 excludeType=1;
+			repeated string excludeDate=2;
+		}
+		repeated ExcludeRule exclude_rule =7;
+
+		int32 version =10;
+	}
+	
+	message ListCoursePlanRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListCoursePlanReply {
+	
+		message Data{
+			int32 id=1;
+			string name=2;
+			string description=3;
+			string start_time =4;
+			string end_time=5;
+			int32 cycle_type=6;
+			message ExcludeRule {
+				int32 excludeType=1;
+				repeated string excludeDate=2;
+			}
+			repeated ExcludeRule exclude_rule =7;
+			int32 status =8;
+
+			int32 version =10;
+			string updated_at =11;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+
+	message ReleaseCoursePlanRequest{
+		repeated int32 id_list =1;
+	}
+
+	message ReleaseCoursePlanReply{
+		int32 success_num=1;
+		int32 failure_num=2;
+		string message =3;
+	}
+
+	message ScheduleDateForCoursePlanRequest{
+		 int32 id =1;
+		 repeated int32 detail_ids=2;
+	}
+
+	message ScheduleDateForCoursePlanReply{
+	}
+
+	
+	message CreateCoursePlanDetailRequest {
+			int32 id=1;
+			int32  plan_id =2;
+			int32  day_index=3;
+			string  day_index_name=4;
+			string start_time=5;
+			string end_time =6;
+			int32  room_id=7;
+			string room_name=8;
+			int32  teacher_id=9;
+			string teacher_name=10;
+			int32  subject_id=11;
+			string subject_name =12;
+			int32  grade_id=13;
+			string grade_name =14;
+			int32 lesson_num = 15;
+			int32 plan_num=16;      // 计划上课人数
+			int32 actual_num=17;  // 报名人数
+			int32 status=18;      
+			string plan_name =19;
+	}
+	message CreateCoursePlanDetailReply {}
+	
+	message UpdateCoursePlanDetailRequest {
+		int32 id=1;
+		string code=2;
+		int32  plan_id =3;
+		int32  day_index=4;
+		string  day_index_name=5;
+		string start_time=6;
+		string end_time =7;
+		int32  room_id=8;
+		string room_name=9;
+		int32  teacher_id=10;
+		string teacher_name=11;
+		int32  subject_id=12;
+		string subject_name =13;
+		int32  grade_id=14;
+		string grade_name =15;
+		int32 lesson_num = 16;
+		int32 plan_num=17;      // 计划上课人数
+		int32 actual_num=18;  // 报名人数
+		int32 status=19;      
+		string plan_name =20;
+		int32 version =21;
+	}
+	message UpdateCoursePlanDetailReply {}
+	
+	message DeleteCoursePlanDetailRequest {
+		int32 id =1;
+	}
+	message DeleteCoursePlanDetailReply {}
+	
+	message GetCoursePlanDetailRequest {
+		int32 id =1;
+	}
+	message GetCoursePlanDetailReply {
+		int32 id=1;
+		int32  plan_id =2;
+		int32  DayIndex=3;
+		string StartTime=4;
+		string EndTime =5;
+		int32  RoomId=6;
+		string RoomName=7;
+		int32  TeacherId=8;
+		string TeacherName=9;
+		int32  SubjectId=10;
+		string SubjectName =11;
+		int32  GradeId=12;
+		string GradeName =13;
+		int32 version =14;
+	}
+	
+	message ListCoursePlanDetailRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListCoursePlanDetailReply {
+	
+		message Data{
+			int32 id=1;
+			int32  plan_id =2;
+			int32  day_index=3;
+			string  day_index_name=4;
+			string start_time=5;
+			string end_time =6;
+			int32  room_id=7;
+			string room_name=8;
+			int32  teacher_id=9;
+			string teacher_name=10;
+			int32  subject_id=11;
+			string subject_name =12;
+			int32  grade_id=13;
+			string grade_name =14;
+			int32 lesson_num = 15;
+			int32 plan_num=16;      // 计划上课人数
+			int32 actual_num=17;  // 报名人数
+			int32 status=18;      
+			int32 version=19;
+			string plan_name =20;
+			string code=21;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+	
+
+	message ListAllCoursePlanDetailRequest {
+		string expr =1;
+	
+	}
+	message ListAllCoursePlanDetailReply {
+	
+		message Data{
+			int32 id=1;
+			int32  plan_id =2;
+			int32  day_index=3;
+			string  day_index_name=4;
+			string start_time=5;
+			string end_time =6;
+			int32  room_id=7;
+			string room_name=8;
+			int32  teacher_id=9;
+			string teacher_name=10;
+			int32  subject_id=11;
+			string subject_name =12;
+			int32  grade_id=13;
+			string grade_name =14;
+			int32 lesson_num = 15;
+			int32 plan_num=16;      // 计划上课人数
+			int32 actual_num=17;  // 报名人数
+			int32 status=18;      
+			int32 version=19;
+			string plan_name=20;
+			string code=21;
+		}
+		repeated Data data=1;
+	}
+
+	message BatchAddCoursePlanDetailRequest{
+
+		message Data{
+			int32 id=1;
+			int32  plan_id =2;
+			int32  day_index=3;
+			string  day_index_name=4;
+			string start_time=5;
+			string end_time =6;
+			int32  room_id=7;
+			string room_name=8;
+			int32  teacher_id=9;
+			string teacher_name=10;
+			int32  subject_id=11;
+			string subject_name =12;
+			int32  grade_id=13;
+			string grade_name =14;
+			int32 lesson_num = 15;
+			int32 plan_num=16;      // 计划上课人数
+			int32 actual_num=17;  // 报名人数
+			int32 status=18;      
+			int32 version =19;
+			string plan_name =20;
+			string code=21;
+		}
+		repeated Data data=1;
+	}
+
+	message BatchAddCoursePlanDetailReply{
+
+	}
+
+
+	message StopCoursePlanDetailRequest {
+		int32 id =1;
+	}
+
+	message StopCoursePlanDetailReply {
+	}
+
+	message ScheduleDateForCoursePlanDetailRequest{
+		int32 id =1;
+   }
+
+   message ScheduleDateForCoursePlanDetailReply{
+   }
+
+ // coursePlanStudent
+ message CreateCoursePlanStudentRequest {
+	string customer_phone =1;
+	int32 student_id=2;
+	string student_name=3; 
+
+	int32 plan_id =4;
+	string plan_name=5;
+
+	int32 plan_detail_id =6;
+}
+
+message CreateCoursePlanStudentReply {}
+
+message UpdateCoursePlanStudentRequest {
+	int32 id=1;
+	string customer_phone =2;
+	int32 student_id=3;
+	string student_name=4; 
+
+	int32 plan_id =5;
+	string plan_name=6;
+
+	int32 plan_detail_id =7;
+
+	int32 version =10;
+}
+
+message UpdateCoursePlanStudentReply {}
+
+message DeleteCoursePlanStudentRequest {
+	int32 id =1;
+}
+message DeleteCoursePlanStudentReply {}
+
+message GetCoursePlanStudentRequest {
+	int32 id =1;
+}
+message GetCoursePlanStudentReply {
+	int32 id=1;
+	string customer_phone =2;
+	int32 student_id=3;
+	string student_name=4; 
+
+	int32 plan_id =5;
+	string plan_name=6;
+
+	int32 plan_detail_id =7;
+	int32 status =8;
+	int32 version =10;
+}
+
+message ListCoursePlanStudentRequest {
+	string expr =1;
+
+	int32 page_no =2;
+	int32 page_size =3;
+}
+message ListCoursePlanStudentReply {
+
+	message Data{
+		int32 id=1;
+		string customer_phone =2;
+		int32 student_id=3;
+		string student_name=4; 
+
+		int32 plan_id =5;
+		string plan_name=6;
+
+		int32 plan_detail_id =7;
+		int32 status =8;
+		int32 version =10;
+		string updated_at =11;
+	}
+	repeated Data data=1;
+	int32 total=2;
+}
+
+message StopCoursePlanStudentRequest{
+	int32 id=1;
+}
+
+message StopCoursePlanStudentReply{
+
+}
+
+	message CreateDailyLessonRequest {
+			int32 id=1;
+			int32  plan_id =2;
+			int32  day_index=3;
+			string  day_index_name=4;
+			string start_time=5;
+			string end_time =6;
+			int32  room_id=7;
+			string room_name=8;
+			int32  teacher_id=9;
+			string teacher_name=10;
+			int32  subject_id=11;
+			string subject_name =12;
+			int32  grade_id=13;
+			string grade_name =14;
+			int32 lesson_num = 15;
+			int32 plan_num=16;      // 计划上课人数
+			int32 actual_num=17;  // 报名人数
+			int32 status=18;      
+			string plan_name =19;
+	}
+	message CreateDailyLessonReply {}
+	
+	message UpdateDailyLessonRequest {
+		int32 id=1;
+		int32  plan_id =2;
+		int32  DayIndex=3;
+		string StartTime=4;
+		string EndTime =5;
+		int32  RoomId=6;
+		string RoomName=7;
+		int32  TeacherId=8;
+		string TeacherName=9;
+		int32  SubjectId=10;
+		string SubjectName =11;
+		int32  GradeId=12;
+		string GradeName =13;
+		int32 version =14;
+		string plan_name =15;
+		int32 status =16;
+	}
+	message UpdateDailyLessonReply {}
+	
+	message DeleteDailyLessonRequest {
+		int32 id =1;
+	}
+	message DeleteDailyLessonReply {}
+	
+	message GetDailyLessonRequest {
+		int32 id =1;
+	}
+	message GetDailyLessonReply {
+		int32 id=1;
+		int32  plan_id =2;
+		int32  DayIndex=3;
+		string StartTime=4;
+		string EndTime =5;
+		int32  RoomId=6;
+		string RoomName=7;
+		int32  TeacherId=8;
+		string TeacherName=9;
+		int32  SubjectId=10;
+		string SubjectName =11;
+		int32  GradeId=12;
+		string GradeName =13;
+		int32 version =14;
+		int32 status =15;
+	}
+	
+	message ListDailyLessonRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListDailyLessonReply {
+	
+		message Data{
+			int32 id=1;
+			int32  plan_id =2;
+			string plan_name =3;
+			int32 plan_datail_id =4;
+			string date_of_day=5;
+			string start_time=6;
+			string end_time =7;
+			int32  room_id=8;
+			string room_name=9;
+			int32  teacher_id=10;
+			string teacher_name=11;
+			int32  subject_id=12;
+			string subject_name =13;
+			int32  grade_id=14;
+			string grade_name =15;
+			int32 lesson_num = 16;
+			int32 plan_num=17;      // 计划上课人数
+			int32 actual_num=18;  // 报名人数
+			int32 sign_num=19;  // 签到
+			int32 status=20;      
+			int32 version=21;
+			string course_code=22;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+	
+
+	message StartDailyLessonRequest {
+		int32 id =1;
+	}
+
+	message StartDailyLessonReply {
+	}
+
+	message CancelDailyLessonRequest {
+		int32 id =1;
+	}
+
+	message CancelDailyLessonReply {
+	}
+
+	message FinishDailyLessonRequest {
+		int32 id =1;
+	}
+
+	message FinishDailyLessonReply {
+	}
+
+	message ListDailyLessonStudentRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListDailyLessonStudentReply {
+	
+		message Data{
+			int32 id=1;
+			int32 plan_id=2;
+			string plan_name=3;
+			int32 plan_detail_id =4;
+			int32 lesson_id=5;
+			string customer_phone=6;
+			int32 student_id=7;   
+			string student_name =8;
+			int32 status=9;
+			int32 version=10;
+			string updated_at=11;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+
+	message SignDailyLessonStudentRequest{
+		int32 id=1;
+	}
+
+	message SignDailyLessonStudentReply{
+	}
+	
+	message LeaveDailyLessonStudentRequest{
+		int32 id=1;
+	}
+
+	message LeaveDailyLessonStudentReply{
+	}

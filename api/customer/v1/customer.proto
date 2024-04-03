@@ -1,0 +1,235 @@
+syntax = "proto3";
+
+package workbench.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "edu/api/customer/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.customer.v1";
+option java_outer_classname = "customerProtoV1";
+
+service Customer{
+
+	// customer
+	rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerReply){
+		option (google.api.http) = {
+			post: "/customer"
+			body:"*"
+		};
+	};
+	rpc UpdateCustomer (UpdateCustomerRequest) returns (UpdateCustomerReply){
+		option (google.api.http) = {
+			put: "/customer/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteCustomer (DeleteCustomerRequest) returns (DeleteCustomerReply){
+		option (google.api.http) = {
+			delete: "/customer/{id}"
+		};
+	};
+	rpc GetCustomer (GetCustomerRequest) returns (GetCustomerReply){
+		option (google.api.http) = {
+			get: "/customer"
+		};
+	};
+	rpc ListCustomer (ListCustomerRequest) returns (ListCustomerReply){
+		option (google.api.http) = {
+			get: "/customer/page"
+		};
+	};
+
+	rpc AdjustLessonNumber(AdjustLessonNumberRequest) returns (AdjustLessonNumberReply){
+		option (google.api.http) = {
+			post: "/customer/lesson/adjust"
+			body:"*"
+		};
+	}
+	rpc ListLessonHistory (ListLessonHistoryRequest) returns (ListLessonHistoryReply){
+		option (google.api.http) = {
+			get: "/customer/lesson/history"
+		};
+	};
+
+	// student
+	rpc CreateStudent (CreateStudentRequest) returns (CreateStudentReply){
+		option (google.api.http) = {
+			post: "/student"
+			body:"*"
+		};
+	};
+	rpc UpdateStudent (UpdateStudentRequest) returns (UpdateStudentReply){
+		option (google.api.http) = {
+			put: "/student/{id}"
+			body:"*"
+		};
+	};
+	rpc DeleteStudent (DeleteStudentRequest) returns (DeleteStudentReply){
+		option (google.api.http) = {
+			delete: "/student/{id}"
+		};
+	};
+	rpc GetStudent (GetStudentRequest) returns (GetStudentReply){
+		option (google.api.http) = {
+			get: "/student"
+		};
+	};
+	rpc ListStudent (ListStudentRequest) returns (ListStudentReply){
+		option (google.api.http) = {
+			get: "/student/page"
+		};
+	};
+	
+    
+}
+    // customer
+	message CreateCustomerRequest {
+		string name = 1;
+		string mobile = 2;
+		string community =3;
+		string description = 4;
+		int32 status =5;
+	}
+	message CreateCustomerReply {}
+	
+	message UpdateCustomerRequest {
+		int32 id=1;
+		string name = 2;
+		string mobile = 3;
+		string community =4;
+		string description = 5;
+		int32  status = 6;
+		int32 version =7;
+	}
+	message UpdateCustomerReply {}
+	
+	message DeleteCustomerRequest {
+		int32 id =1;
+	}
+	message DeleteCustomerReply {}
+	
+	message GetCustomerRequest {
+		int32 id =1;
+	}
+	message GetCustomerReply {
+		int32 id=1;
+		string name = 2;
+		string mobile = 3;
+		string community =4;
+		string description = 5;
+		int32  status = 6;
+		int32 version =7;
+	}
+	
+	message ListCustomerRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListCustomerReply {
+	
+		message Data{
+			int32 id=1;
+			string name = 2;
+			string mobile = 3;
+			int32 lessonNumber =4;
+			string community =5;
+			string description = 6;
+			int32  status = 7;
+			int32 version =8;
+			string updated_at =9;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+	
+	message AdjustLessonNumberRequest{
+		int32 id =1;
+		int32  numChange=2;
+		string change_description=3;
+		int32 version =4;
+	}
+
+	message AdjustLessonNumberReply{
+	}
+
+	message ListLessonHistoryRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListLessonHistoryReply {
+	
+		message Data{
+			int32 id=1;
+			string mobile = 2;
+			int32 origin_num =3;
+			int32 num_change =4;
+			int32 source_type = 5;
+			string description = 6;
+			string updated_at =9;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+	
+
+	message CreateStudentRequest {
+		string name = 1;
+		string mobile = 2;
+		string description = 4;
+		string birthday=5;
+	}
+	message CreateStudentReply {}
+	
+	message UpdateStudentRequest {
+		int32 id=1;
+		string name =2;
+		string mobile =3;
+		string description = 5;
+		string birthday=6;
+		int32 version =8;
+	}
+	message UpdateStudentReply {}
+	
+	message DeleteStudentRequest {
+		int32 id =1;
+	}
+	message DeleteStudentReply {}
+	
+	message GetStudentRequest {
+		int32 id =1;
+	}
+	message GetStudentReply {
+		int32 id=1;
+		string name =2;
+		string mobile =3;
+		string description = 5;
+		string birthday=6;
+		int32 version =8;
+	}
+	
+	message ListStudentRequest {
+		string expr =1;
+	
+		int32 page_no =2;
+		int32 page_size =3;
+	}
+	message ListStudentReply {
+	
+		message Data{
+			int32 id =1;
+			string name = 2;
+			string mobile = 3;
+			string birthday=5;
+			string description = 7;
+			string updated_at =8;
+			int32 version =9;
+		}
+		repeated Data data=1;
+		int32 total=2;
+	}
+	
